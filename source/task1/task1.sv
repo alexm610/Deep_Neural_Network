@@ -1,4 +1,4 @@
-module task1(input logic CLOCK_50, input logic [3:0] KEY,
+module lights (input logic CLOCK_50, input logic [3:0] KEY,
              input logic [9:0] SW, output logic [9:0] LEDR);
 
 	nios_system sys(
@@ -8,4 +8,4 @@ module task1(input logic CLOCK_50, input logic [3:0] KEY,
 		.leds_export(LEDR)
 	);
 
-endmodule: task1
+endmodule: lights
