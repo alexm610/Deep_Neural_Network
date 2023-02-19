@@ -5,7 +5,6 @@ module vga_avalon(input logic clk, input logic reset_n,
                   output logic [7:0] vga_red, output logic [7:0] vga_grn, output logic [7:0] vga_blu,
                   output logic vga_hsync, output logic vga_vsync, output logic vga_clk);
 
-    
     logic [9:0] VGA_R_10, VGA_G_10, VGA_B_10;
 
     assign vga_red = VGA_R_10;
