@@ -6,10 +6,22 @@ module vga_avalon(input logic clk, input logic reset_n,
                   output logic vga_hsync, output logic vga_vsync, output logic vga_clk);
 
     
-    // your Avalon slave implementation goes here
+    logic [9:0] VGA_R_10, VGA_G_10, VGA_B_10;
 
-    vga_adapter #( .RESOLUTION("160x120"), .MONOCHROME("TRUE"), .BITS_PER_COLOUR_CHANNEL(8) )
-	vga( /* connect ports */ );
+    assign vga_red = VGA_R_10;
+    assign vga_grn = VGA_G_10;
+    assign vga_blu = VGA_B_10;
+
+    vga_adapter #( .RESOLUTION("160x120"), .MONOCHROME("TRUE"), .BITS_PER_COLOUR_CHANNEL(8) ) vga (
+        .resetn(reset_n),
+        .clock(clk),
+        .x(),
+        .y(),
+        .plot(),
+        .VGA_R(VGA_R_10),
+        .VGA_G(VGA_G_10),
+        .VGA_B(VGA_B_10),
+        .*);
 
     // NOTE: We will ignore the VGA_SYNC and VGA_BLANK signals.
     //       Either don't connect them or connect them to dangling wires.
