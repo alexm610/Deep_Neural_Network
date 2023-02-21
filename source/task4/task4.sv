@@ -14,7 +14,7 @@ module task4 (input logic CLOCK_50, input logic [3:0] KEY, // KEY[3] is async ac
     assign HEX4 = 7'b1111111;
     assign HEX5 = 7'b1111111;
     assign LEDR[8:0] = 9'b000000000;
-    dnn_accel_system sys(.clk_clk(CLOCK_50), 
+    dnn_accel_system sys (.clk_clk(CLOCK_50), 
         .reset_reset_n(KEY[3]),
         .pll_locked_export(LEDR[9]),
         .vga_vga_red(VGA_R),

@@ -11,9 +11,9 @@ module vga_avalon (input logic clk, input logic reset_n,
     assign x_valid = (writedata[23:16] <= 8'd160) && (writedata[23:16] >= 8'd0) ? 1 : 0;
     assign y_valid = (writedata[31:24] <= 7'd120) && (writedata[31:24] >= 7'd0) ? 1 : 0;
     assign set_plot = (x_valid && y_valid) ? write : 0;
-    assign vga_red = VGA_R_10;
-    assign vga_grn = VGA_G_10;
-    assign vga_blu = VGA_B_10;
+    assign vga_red = VGA_R_10[9:2];
+    assign vga_grn = VGA_G_10[9:2];
+    assign vga_blu = VGA_B_10[9:2];
 
     vga_adapter #( .RESOLUTION("160x120"), .MONOCHROME("TRUE"), .BITS_PER_COLOUR_CHANNEL(8) ) vga (
         .resetn(reset_n),
