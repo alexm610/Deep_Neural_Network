@@ -46,7 +46,7 @@ int main() {
 				}
 				pixel++;
 			}
-			vga_plot(x, y, (255*colour)/100);			
+			vga_plot(x, y, (colour));			
 		}
 	}
 }
