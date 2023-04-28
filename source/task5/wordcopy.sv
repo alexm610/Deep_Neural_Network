@@ -1,4 +1,4 @@
-module wordcopy(input logic clk, input logic rst_n,
+module wordcopy (input logic clk, input logic rst_n,
                 // slave (CPU-facing)
                 output logic slave_waitrequest,
                 input logic [3:0] slave_address,
