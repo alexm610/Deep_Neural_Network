@@ -8,6 +8,7 @@ unsigned char pixel_list[] = {
 unsigned num_pixels = sizeof(pixel_list)/2;
 int main() {
 	unsigned y, x, colour, pixel;
+	sprintf(STRING_LOCATION, "Hello World!");
 	for (y = 0; y < 120; y++) {
 		for (x =0; x < 160; x++) {
 			vga_plot(x, y, 0);
