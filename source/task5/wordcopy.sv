@@ -9,8 +9,10 @@ module wordcopy (input logic clk, input logic rst_n,
                 output logic [31:0] master_address,
                 output logic master_read, input logic [31:0] master_readdata, input logic master_readdatavalid,
                 output logic master_write, output logic [31:0] master_writedata);
+
     logic [31:0] destination, d, source, s, number_words, n;
     enum {IDLE, COPY_SOURCE_DATA, WAIT_SOURCE_DATAVALID, PASTE_SOURCE_DATA, CHECK_WORDS_LEFT, DONE} state;
+    
     always @(posedge clk) begin
         if (!rst_n) begin
             state <= IDLE;
