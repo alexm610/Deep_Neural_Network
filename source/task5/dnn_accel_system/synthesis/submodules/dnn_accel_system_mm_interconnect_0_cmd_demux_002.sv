@@ -27,10 +27,10 @@
 
 // ------------------------------------------
 // Generation parameters:
-//   output_name:         dnn_accel_system_mm_interconnect_0_cmd_demux_001
+//   output_name:         dnn_accel_system_mm_interconnect_0_cmd_demux_002
 //   ST_DATA_W:           108
 //   ST_CHANNEL_W:        7
-//   NUM_OUTPUTS:         7
+//   NUM_OUTPUTS:         3
 //   VALID_WIDTH:         1
 // ------------------------------------------
 
@@ -40,7 +40,7 @@
 // 15610 - Warning: Design contains x input pin(s) that do not drive logic
 //------------------------------------------
 
-module dnn_accel_system_mm_interconnect_0_cmd_demux_001
+module dnn_accel_system_mm_interconnect_0_cmd_demux_002
 (
     // -------------------
     // Sink
@@ -76,34 +76,6 @@ module dnn_accel_system_mm_interconnect_0_cmd_demux_001
     output reg                      src2_endofpacket,
     input                           src2_ready,
 
-    output reg                      src3_valid,
-    output reg [108-1    : 0] src3_data, // ST_DATA_W=108
-    output reg [7-1 : 0] src3_channel, // ST_CHANNEL_W=7
-    output reg                      src3_startofpacket,
-    output reg                      src3_endofpacket,
-    input                           src3_ready,
-
-    output reg                      src4_valid,
-    output reg [108-1    : 0] src4_data, // ST_DATA_W=108
-    output reg [7-1 : 0] src4_channel, // ST_CHANNEL_W=7
-    output reg                      src4_startofpacket,
-    output reg                      src4_endofpacket,
-    input                           src4_ready,
-
-    output reg                      src5_valid,
-    output reg [108-1    : 0] src5_data, // ST_DATA_W=108
-    output reg [7-1 : 0] src5_channel, // ST_CHANNEL_W=7
-    output reg                      src5_startofpacket,
-    output reg                      src5_endofpacket,
-    input                           src5_ready,
-
-    output reg                      src6_valid,
-    output reg [108-1    : 0] src6_data, // ST_DATA_W=108
-    output reg [7-1 : 0] src6_channel, // ST_CHANNEL_W=7
-    output reg                      src6_startofpacket,
-    output reg                      src6_endofpacket,
-    input                           src6_ready,
-
 
     // -------------------
     // Clock & Reset
@@ -115,7 +87,7 @@ module dnn_accel_system_mm_interconnect_0_cmd_demux_001
 
 );
 
-    localparam NUM_OUTPUTS = 7;
+    localparam NUM_OUTPUTS = 3;
     wire [NUM_OUTPUTS - 1 : 0] ready_vector;
 
     // -------------------
@@ -143,34 +115,6 @@ module dnn_accel_system_mm_interconnect_0_cmd_demux_001
 
         src2_valid         = sink_channel[2] && sink_valid;
 
-        src3_data          = sink_data;
-        src3_startofpacket = sink_startofpacket;
-        src3_endofpacket   = sink_endofpacket;
-        src3_channel       = sink_channel >> NUM_OUTPUTS;
-
-        src3_valid         = sink_channel[3] && sink_valid;
-
-        src4_data          = sink_data;
-        src4_startofpacket = sink_startofpacket;
-        src4_endofpacket   = sink_endofpacket;
-        src4_channel       = sink_channel >> NUM_OUTPUTS;
-
-        src4_valid         = sink_channel[4] && sink_valid;
-
-        src5_data          = sink_data;
-        src5_startofpacket = sink_startofpacket;
-        src5_endofpacket   = sink_endofpacket;
-        src5_channel       = sink_channel >> NUM_OUTPUTS;
-
-        src5_valid         = sink_channel[5] && sink_valid;
-
-        src6_data          = sink_data;
-        src6_startofpacket = sink_startofpacket;
-        src6_endofpacket   = sink_endofpacket;
-        src6_channel       = sink_channel >> NUM_OUTPUTS;
-
-        src6_valid         = sink_channel[6] && sink_valid;
-
     end
 
     // -------------------
@@ -179,12 +123,8 @@ module dnn_accel_system_mm_interconnect_0_cmd_demux_001
     assign ready_vector[0] = src0_ready;
     assign ready_vector[1] = src1_ready;
     assign ready_vector[2] = src2_ready;
-    assign ready_vector[3] = src3_ready;
-    assign ready_vector[4] = src4_ready;
-    assign ready_vector[5] = src5_ready;
-    assign ready_vector[6] = src6_ready;
 
-    assign sink_ready = |(sink_channel & ready_vector);
+    assign sink_ready = |(sink_channel & {{4{1'b0}},{ready_vector[NUM_OUTPUTS - 1 : 0]}});
 
 endmodule
 

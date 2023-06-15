@@ -38,17 +38,17 @@
 
 // ------------------------------------------
 // Generation parameters:
-//   output_name:         dnn_accel_system_mm_interconnect_0_rsp_mux
+//   output_name:         dnn_accel_system_mm_interconnect_0_cmd_mux_002
 //   NUM_INPUTS:          1
 //   ARBITRATION_SHARES:  1
-//   ARBITRATION_SCHEME   "no-arb"
-//   PIPELINE_ARB:        0
+//   ARBITRATION_SCHEME   "round-robin"
+//   PIPELINE_ARB:        1
 //   PKT_TRANS_LOCK:      72 (arbitration locking enabled)
 //   ST_DATA_W:           108
 //   ST_CHANNEL_W:        7
 // ------------------------------------------
 
-module dnn_accel_system_mm_interconnect_0_rsp_mux
+module dnn_accel_system_mm_interconnect_0_cmd_mux_002
 (
     // ----------------------
     // Sinks
@@ -80,7 +80,7 @@ module dnn_accel_system_mm_interconnect_0_rsp_mux
     localparam PAYLOAD_W        = 108 + 7 + 2;
     localparam NUM_INPUTS       = 1;
     localparam SHARE_COUNTER_W  = 1;
-    localparam PIPELINE_ARB     = 0;
+    localparam PIPELINE_ARB     = 1;
     localparam ST_DATA_W        = 108;
     localparam ST_CHANNEL_W     = 7;
     localparam PKT_TRANS_LOCK   = 72;
