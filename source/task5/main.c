@@ -2,6 +2,7 @@
 #include "vga_plot.c"
 volatile unsigned *vga = (volatile unsigned *) 0x00004000; /* VGA adapter base address */
 volatile unsigned *wordcopy = (volatile unsigned *) 0x00001040; /* Wordcopy module base address */
+volatile unsigned *memory_location = (volatile unsigned *) 0x00006000;
 #define STRING_LOCATION (char *) 0x00008000
 unsigned char pixel_list[] = {
 	#include "../../data/misc/pixels.txt"
@@ -57,8 +58,7 @@ int main() {
 
 
 */
-
-
+	*memory_location = 0xAAAAAAAA;
 	// VGA Blurred dog printing 
 	for (y = 0; y < 120; y++) {
 		for (x =0; x < 160; x++) {
@@ -104,4 +104,5 @@ int main() {
 			vga_plot(x, y, (255*colour)/100);			
 		}
 	} 
+*memory_location = 0xAAAAAAAA;
 }
