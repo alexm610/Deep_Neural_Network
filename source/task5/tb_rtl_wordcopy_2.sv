@@ -39,14 +39,14 @@ module tb_rtl_wordcopy_2();
         $readmemh("test2.memh", ciphertext);
         rst_n = 1; #2;
         rst_n = 0; #2;
-        //rst_n = 1; #2;
+        rst_n = 1; #2;
         for (integer i = 0; i < 1024; i = i + 1 )begin
-            dut.master_write = 1;
-            dut.master_address = i[9:0];
-            dut.master_writedata = ciphertext[i];
+            master_write = 1;
+            master_address = i[9:0];
+            master_writedata = ciphertext[i];
             #2;
         end
-        dut.master_write = 0;
+        master_write = 0;
         #2;
 
         rst_n = 1; #2;
