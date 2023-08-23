@@ -5,11 +5,11 @@
  version="1.0"
  fabric="QSYS">
  <!-- Format version 19.1 670 (Future versions may contain additional information.) -->
- <!-- 2023.07.01.17:15:40 -->
+ <!-- 2023.08.01.13:00:20 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1688256940</value>
+  <value>1690920020</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -4333,7 +4333,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="dataSlaveMapParam">
    <type>java.lang.String</type>
-   <value><![CDATA[<address-map><slave name='Word_Copy_0.slave' start='0x0' end='0x40' type='Word_Copy.slave' /><slave name='nios2_gen2_0.debug_mem_slave' start='0x800' end='0x1000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x1000' end='0x1008' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='HEX.s1' start='0x1010' end='0x1020' type='altera_avalon_pio.s1' /><slave name='vga_avalon_0.avalon_slave_0' start='0x4000' end='0x4040' type='vga_avalon.avalon_slave_0' /><slave name='onchip_memory2_0.s1' start='0x8000' end='0x10000' type='altera_avalon_onchip_memory2.s1' /><slave name='sdram.s1' start='0x8000000' end='0xC000000' type='altera_avalon_new_sdram_controller.s1' /></address-map>]]></value>
+   <value><![CDATA[<address-map><slave name='nios2_gen2_0.debug_mem_slave' start='0x800' end='0x1000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x1000' end='0x1008' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='HEX.s1' start='0x1010' end='0x1020' type='altera_avalon_pio.s1' /><slave name='Word_Copy_0.slave' start='0x1040' end='0x1080' type='Word_Copy.slave' /><slave name='vga_avalon_0.avalon_slave_0' start='0x4000' end='0x4040' type='vga_avalon.avalon_slave_0' /><slave name='onchip_memory2_0.s1' start='0x8000' end='0x10000' type='altera_avalon_onchip_memory2.s1' /><slave name='sdram.s1' start='0x8000000' end='0xC000000' type='altera_avalon_new_sdram_controller.s1' /></address-map>]]></value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -5052,7 +5052,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>Word_Copy_0</moduleName>
     <slaveName>slave</slaveName>
     <name>Word_Copy_0.slave</name>
-    <baseAddress>0</baseAddress>
+    <baseAddress>4160</baseAddress>
     <span>64</span>
    </memoryBlock>
   </interface>
@@ -12867,7 +12867,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x0000</value>
+   <value>0x1040</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>

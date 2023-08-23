@@ -134,10 +134,10 @@ module dnn_accel_system_mm_interconnect_0_router_001
     // Figure out the number of bits to mask off for each slave span
     // during address decoding
     // -------------------------------------------------------
-    localparam PAD0 = log2ceil(64'h40 - 64'h0); 
-    localparam PAD1 = log2ceil(64'h1000 - 64'h800); 
-    localparam PAD2 = log2ceil(64'h1008 - 64'h1000); 
-    localparam PAD3 = log2ceil(64'h1020 - 64'h1010); 
+    localparam PAD0 = log2ceil(64'h1000 - 64'h800); 
+    localparam PAD1 = log2ceil(64'h1008 - 64'h1000); 
+    localparam PAD2 = log2ceil(64'h1020 - 64'h1010); 
+    localparam PAD3 = log2ceil(64'h1080 - 64'h1040); 
     localparam PAD4 = log2ceil(64'h4040 - 64'h4000); 
     localparam PAD5 = log2ceil(64'h10000 - 64'h8000); 
     localparam PAD6 = log2ceil(64'hc000000 - 64'h8000000); 
@@ -194,28 +194,28 @@ module dnn_accel_system_mm_interconnect_0_router_001
         // Sets the channel and destination ID based on the address
         // --------------------------------------------------
 
-    // ( 0x0 .. 0x40 )
-    if ( {address[RG:PAD0],{PAD0{1'b0}}} == 28'h0   ) begin
-            src_channel = 7'b1000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
-    end
-
     // ( 0x800 .. 0x1000 )
-    if ( {address[RG:PAD1],{PAD1{1'b0}}} == 28'h800   ) begin
+    if ( {address[RG:PAD0],{PAD0{1'b0}}} == 28'h800   ) begin
             src_channel = 7'b0001000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
     end
 
     // ( 0x1000 .. 0x1008 )
-    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 28'h1000   ) begin
+    if ( {address[RG:PAD1],{PAD1{1'b0}}} == 28'h1000   ) begin
             src_channel = 7'b0000010;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
     end
 
     // ( 0x1010 .. 0x1020 )
-    if ( {address[RG:PAD3],{PAD3{1'b0}}} == 28'h1010   ) begin
+    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 28'h1010   ) begin
             src_channel = 7'b0010000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;
+    end
+
+    // ( 0x1040 .. 0x1080 )
+    if ( {address[RG:PAD3],{PAD3{1'b0}}} == 28'h1040   ) begin
+            src_channel = 7'b1000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
     end
 
     // ( 0x4000 .. 0x4040 )

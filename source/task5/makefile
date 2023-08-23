@@ -28,7 +28,7 @@ OCFLAGS		:= -O srec
 
 # Files
 HDRS		:=
-SRCS		:= main.c amp/lib/src/niosII_jtag_uart.c
+SRCS		:= main.c
 OBJS		:= $(patsubst %, %.o, $(SRCS))
 
 # Targets
