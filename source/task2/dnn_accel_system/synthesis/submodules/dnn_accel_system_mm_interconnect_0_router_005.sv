@@ -42,7 +42,7 @@
 
 `timescale 1 ns / 1 ns
 
-module dnn_accel_system_mm_interconnect_0_router_003_default_decode
+module dnn_accel_system_mm_interconnect_0_router_005_default_decode
   #(
      parameter DEFAULT_CHANNEL = 0,
                DEFAULT_WR_CHANNEL = -1,
@@ -81,7 +81,7 @@ module dnn_accel_system_mm_interconnect_0_router_003_default_decode
 endmodule
 
 
-module dnn_accel_system_mm_interconnect_0_router_003
+module dnn_accel_system_mm_interconnect_0_router_005
 (
     // -------------------
     // Clock & Reset
@@ -163,14 +163,9 @@ module dnn_accel_system_mm_interconnect_0_router_003
 
 
 
-    // -------------------------------------------------------
-    // Write and read transaction signals
-    // -------------------------------------------------------
-    wire read_transaction;
-    assign read_transaction  = sink_data[PKT_TRANS_READ];
 
 
-    dnn_accel_system_mm_interconnect_0_router_003_default_decode the_default_decode(
+    dnn_accel_system_mm_interconnect_0_router_005_default_decode the_default_decode(
       .default_destination_id (),
       .default_wr_channel   (),
       .default_rd_channel   (),
@@ -190,11 +185,7 @@ module dnn_accel_system_mm_interconnect_0_router_003
 
 
         if (destid == 0 ) begin
-            src_channel = 7'b01;
-        end
-
-        if (destid == 1  && read_transaction) begin
-            src_channel = 7'b10;
+            src_channel = 7'b1;
         end
 
 

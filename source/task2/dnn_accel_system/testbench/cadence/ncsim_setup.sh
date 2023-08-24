@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 19.1 670 win32 2023.02.17.15:18:44
+# ACDS 19.1 670 win32 2023.08.23.21:34:10
 
 # ----------------------------------------
 # ncsim - auto-generated simulation script
@@ -106,7 +106,7 @@
 # within the Quartus project, and generate a unified
 # script which supports all the Altera IP within the design.
 # ----------------------------------------
-# ACDS 19.1 670 win32 2023.02.17.15:18:44
+# ACDS 19.1 670 win32 2023.08.23.21:34:10
 # ----------------------------------------
 # initialize variables
 TOP_LEVEL_NAME="dnn_accel_system_tb"
@@ -150,17 +150,18 @@ mkdir -p ./libraries/altera_common_sv_packages/
 mkdir -p ./libraries/error_adapter_0/
 mkdir -p ./libraries/avalon_st_adapter_005/
 mkdir -p ./libraries/avalon_st_adapter/
-mkdir -p ./libraries/SDRAM_s1_rsp_width_adapter/
+mkdir -p ./libraries/sdram_controller_s1_rsp_width_adapter/
 mkdir -p ./libraries/rsp_mux_001/
 mkdir -p ./libraries/rsp_mux/
+mkdir -p ./libraries/rsp_demux_003/
 mkdir -p ./libraries/rsp_demux/
-mkdir -p ./libraries/cmd_mux_001/
+mkdir -p ./libraries/cmd_mux_003/
 mkdir -p ./libraries/cmd_mux/
 mkdir -p ./libraries/cmd_demux_001/
 mkdir -p ./libraries/cmd_demux/
-mkdir -p ./libraries/SDRAM_s1_burst_adapter/
+mkdir -p ./libraries/sdram_controller_s1_burst_adapter/
 mkdir -p ./libraries/router_007/
-mkdir -p ./libraries/router_003/
+mkdir -p ./libraries/router_005/
 mkdir -p ./libraries/router_002/
 mkdir -p ./libraries/router_001/
 mkdir -p ./libraries/router/
@@ -173,22 +174,22 @@ mkdir -p ./libraries/cpu/
 mkdir -p ./libraries/rst_controller/
 mkdir -p ./libraries/irq_mapper/
 mkdir -p ./libraries/mm_interconnect_0/
+mkdir -p ./libraries/switches/
+mkdir -p ./libraries/sdram_controller/
 mkdir -p ./libraries/pll_0/
 mkdir -p ./libraries/onchip_memory2_0/
 mkdir -p ./libraries/nios2_gen2_0/
 mkdir -p ./libraries/jtag_uart_0/
-mkdir -p ./libraries/SWITCH/
-mkdir -p ./libraries/SDRAM/
-mkdir -p ./libraries/LED/
-mkdir -p ./libraries/HEX/
+mkdir -p ./libraries/hex0/
+mkdir -p ./libraries/LEDs/
+mkdir -p ./libraries/sdram_controller_my_partner/
 mkdir -p ./libraries/dnn_accel_system_inst_switches_bfm/
 mkdir -p ./libraries/dnn_accel_system_inst_reset_bfm/
 mkdir -p ./libraries/dnn_accel_system_inst_pll_locked_bfm/
 mkdir -p ./libraries/dnn_accel_system_inst_leds_bfm/
 mkdir -p ./libraries/dnn_accel_system_inst_hex_bfm/
+mkdir -p ./libraries/dnn_accel_system_inst_clk_bfm/
 mkdir -p ./libraries/dnn_accel_system_inst/
-mkdir -p ./libraries/SDRAM_my_partner_clk_bfm/
-mkdir -p ./libraries/SDRAM_my_partner/
 mkdir -p ./libraries/altera_ver/
 mkdir -p ./libraries/lpm_ver/
 mkdir -p ./libraries/sgate_ver/
@@ -238,32 +239,33 @@ if [ $SKIP_COM -eq 0 ]; then
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv"     -work error_adapter_0                              -cdslib ./cds_libs/error_adapter_0.cds.lib                             
   ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_005.v"                  -work avalon_st_adapter_005                        -cdslib ./cds_libs/avalon_st_adapter_005.cds.lib                       
   ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter.v"                      -work avalon_st_adapter                            -cdslib ./cds_libs/avalon_st_adapter.cds.lib                           
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_width_adapter.sv"                                              -work SDRAM_s1_rsp_width_adapter                   -cdslib ./cds_libs/SDRAM_s1_rsp_width_adapter.cds.lib                  
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_address_alignment.sv"                                          -work SDRAM_s1_rsp_width_adapter                   -cdslib ./cds_libs/SDRAM_s1_rsp_width_adapter.cds.lib                  
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_uncompressor.sv"                                         -work SDRAM_s1_rsp_width_adapter                   -cdslib ./cds_libs/SDRAM_s1_rsp_width_adapter.cds.lib                  
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_width_adapter.sv"                                              -work sdram_controller_s1_rsp_width_adapter        -cdslib ./cds_libs/sdram_controller_s1_rsp_width_adapter.cds.lib       
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_address_alignment.sv"                                          -work sdram_controller_s1_rsp_width_adapter        -cdslib ./cds_libs/sdram_controller_s1_rsp_width_adapter.cds.lib       
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_uncompressor.sv"                                         -work sdram_controller_s1_rsp_width_adapter        -cdslib ./cds_libs/sdram_controller_s1_rsp_width_adapter.cds.lib       
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_mux_001.sv"                           -work rsp_mux_001                                  -cdslib ./cds_libs/rsp_mux_001.cds.lib                                 
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                                 -work rsp_mux_001                                  -cdslib ./cds_libs/rsp_mux_001.cds.lib                                 
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_mux.sv"                               -work rsp_mux                                      -cdslib ./cds_libs/rsp_mux.cds.lib                                     
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                                 -work rsp_mux                                      -cdslib ./cds_libs/rsp_mux.cds.lib                                     
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_demux_003.sv"                         -work rsp_demux_003                                -cdslib ./cds_libs/rsp_demux_003.cds.lib                               
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_demux.sv"                             -work rsp_demux                                    -cdslib ./cds_libs/rsp_demux.cds.lib                                   
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_mux_001.sv"                           -work cmd_mux_001                                  -cdslib ./cds_libs/cmd_mux_001.cds.lib                                 
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                                 -work cmd_mux_001                                  -cdslib ./cds_libs/cmd_mux_001.cds.lib                                 
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_mux_003.sv"                           -work cmd_mux_003                                  -cdslib ./cds_libs/cmd_mux_003.cds.lib                                 
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                                 -work cmd_mux_003                                  -cdslib ./cds_libs/cmd_mux_003.cds.lib                                 
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_mux.sv"                               -work cmd_mux                                      -cdslib ./cds_libs/cmd_mux.cds.lib                                     
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                                 -work cmd_mux                                      -cdslib ./cds_libs/cmd_mux.cds.lib                                     
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_demux_001.sv"                         -work cmd_demux_001                                -cdslib ./cds_libs/cmd_demux_001.cds.lib                               
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_demux.sv"                             -work cmd_demux                                    -cdslib ./cds_libs/cmd_demux.cds.lib                                   
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter.sv"                                              -work SDRAM_s1_burst_adapter                       -cdslib ./cds_libs/SDRAM_s1_burst_adapter.cds.lib                      
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter_uncmpr.sv"                                       -work SDRAM_s1_burst_adapter                       -cdslib ./cds_libs/SDRAM_s1_burst_adapter.cds.lib                      
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter_13_1.sv"                                         -work SDRAM_s1_burst_adapter                       -cdslib ./cds_libs/SDRAM_s1_burst_adapter.cds.lib                      
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter_new.sv"                                          -work SDRAM_s1_burst_adapter                       -cdslib ./cds_libs/SDRAM_s1_burst_adapter.cds.lib                      
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_incr_burst_converter.sv"                                              -work SDRAM_s1_burst_adapter                       -cdslib ./cds_libs/SDRAM_s1_burst_adapter.cds.lib                      
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_wrap_burst_converter.sv"                                              -work SDRAM_s1_burst_adapter                       -cdslib ./cds_libs/SDRAM_s1_burst_adapter.cds.lib                      
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_default_burst_converter.sv"                                           -work SDRAM_s1_burst_adapter                       -cdslib ./cds_libs/SDRAM_s1_burst_adapter.cds.lib                      
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_address_alignment.sv"                                          -work SDRAM_s1_burst_adapter                       -cdslib ./cds_libs/SDRAM_s1_burst_adapter.cds.lib                      
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_st_pipeline_stage.sv"                                          -work SDRAM_s1_burst_adapter                       -cdslib ./cds_libs/SDRAM_s1_burst_adapter.cds.lib                      
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_st_pipeline_base.v"                                            -work SDRAM_s1_burst_adapter                       -cdslib ./cds_libs/SDRAM_s1_burst_adapter.cds.lib                      
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter.sv"                                              -work sdram_controller_s1_burst_adapter            -cdslib ./cds_libs/sdram_controller_s1_burst_adapter.cds.lib           
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter_uncmpr.sv"                                       -work sdram_controller_s1_burst_adapter            -cdslib ./cds_libs/sdram_controller_s1_burst_adapter.cds.lib           
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter_13_1.sv"                                         -work sdram_controller_s1_burst_adapter            -cdslib ./cds_libs/sdram_controller_s1_burst_adapter.cds.lib           
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter_new.sv"                                          -work sdram_controller_s1_burst_adapter            -cdslib ./cds_libs/sdram_controller_s1_burst_adapter.cds.lib           
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_incr_burst_converter.sv"                                              -work sdram_controller_s1_burst_adapter            -cdslib ./cds_libs/sdram_controller_s1_burst_adapter.cds.lib           
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_wrap_burst_converter.sv"                                              -work sdram_controller_s1_burst_adapter            -cdslib ./cds_libs/sdram_controller_s1_burst_adapter.cds.lib           
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_default_burst_converter.sv"                                           -work sdram_controller_s1_burst_adapter            -cdslib ./cds_libs/sdram_controller_s1_burst_adapter.cds.lib           
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_address_alignment.sv"                                          -work sdram_controller_s1_burst_adapter            -cdslib ./cds_libs/sdram_controller_s1_burst_adapter.cds.lib           
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_st_pipeline_stage.sv"                                          -work sdram_controller_s1_burst_adapter            -cdslib ./cds_libs/sdram_controller_s1_burst_adapter.cds.lib           
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_st_pipeline_base.v"                                            -work sdram_controller_s1_burst_adapter            -cdslib ./cds_libs/sdram_controller_s1_burst_adapter.cds.lib           
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_007.sv"                            -work router_007                                   -cdslib ./cds_libs/router_007.cds.lib                                  
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_003.sv"                            -work router_003                                   -cdslib ./cds_libs/router_003.cds.lib                                  
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_005.sv"                            -work router_005                                   -cdslib ./cds_libs/router_005.cds.lib                                  
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_002.sv"                            -work router_002                                   -cdslib ./cds_libs/router_002.cds.lib                                  
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_001.sv"                            -work router_001                                   -cdslib ./cds_libs/router_001.cds.lib                                  
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router.sv"                                -work router                                       -cdslib ./cds_libs/router.cds.lib                                      
@@ -282,23 +284,23 @@ if [ $SKIP_COM -eq 0 ]; then
   ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_reset_synchronizer.v"                                                 -work rst_controller                               -cdslib ./cds_libs/rst_controller.cds.lib                              
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_irq_mapper.sv"                                              -work irq_mapper                                   -cdslib ./cds_libs/irq_mapper.cds.lib                                  
   ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0.v"                                        -work mm_interconnect_0                            -cdslib ./cds_libs/mm_interconnect_0.cds.lib                           
+  ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_switches.v"                                                 -work switches                                     -cdslib ./cds_libs/switches.cds.lib                                    
+  ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_sdram_controller.v"                                         -work sdram_controller                             -cdslib ./cds_libs/sdram_controller.cds.lib                            
+  ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_sdram_controller_test_component.v"                          -work sdram_controller                             -cdslib ./cds_libs/sdram_controller.cds.lib                            
   ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_pll_0.vo"                                                   -work pll_0                                        -cdslib ./cds_libs/pll_0.cds.lib                                       
   ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_onchip_memory2_0.v"                                         -work onchip_memory2_0                             -cdslib ./cds_libs/onchip_memory2_0.cds.lib                            
   ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_nios2_gen2_0.v"                                             -work nios2_gen2_0                                 -cdslib ./cds_libs/nios2_gen2_0.cds.lib                                
   ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_jtag_uart_0.v"                                              -work jtag_uart_0                                  -cdslib ./cds_libs/jtag_uart_0.cds.lib                                 
-  ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_SWITCH.v"                                                   -work SWITCH                                       -cdslib ./cds_libs/SWITCH.cds.lib                                      
-  ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_SDRAM.v"                                                    -work SDRAM                                        -cdslib ./cds_libs/SDRAM.cds.lib                                       
-  ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_SDRAM_test_component.v"                                     -work SDRAM                                        -cdslib ./cds_libs/SDRAM.cds.lib                                       
-  ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_LED.v"                                                      -work LED                                          -cdslib ./cds_libs/LED.cds.lib                                         
-  ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_HEX.v"                                                      -work HEX                                          -cdslib ./cds_libs/HEX.cds.lib                                         
+  ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_hex0.v"                                                     -work hex0                                         -cdslib ./cds_libs/hex0.cds.lib                                        
+  ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_LEDs.v"                                                     -work LEDs                                         -cdslib ./cds_libs/LEDs.cds.lib                                        
+  ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_sdram_partner_module.v"                                               -work sdram_controller_my_partner                  -cdslib ./cds_libs/sdram_controller_my_partner.cds.lib                 
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm_0004.sv"                                                  -work dnn_accel_system_inst_switches_bfm           -cdslib ./cds_libs/dnn_accel_system_inst_switches_bfm.cds.lib          
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_reset_source.sv"                                               -work dnn_accel_system_inst_reset_bfm              -cdslib ./cds_libs/dnn_accel_system_inst_reset_bfm.cds.lib             
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm_0003.sv"                                                  -work dnn_accel_system_inst_pll_locked_bfm         -cdslib ./cds_libs/dnn_accel_system_inst_pll_locked_bfm.cds.lib        
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm_0002.sv"                                                  -work dnn_accel_system_inst_leds_bfm               -cdslib ./cds_libs/dnn_accel_system_inst_leds_bfm.cds.lib              
   ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm.sv"                                                       -work dnn_accel_system_inst_hex_bfm                -cdslib ./cds_libs/dnn_accel_system_inst_hex_bfm.cds.lib               
+  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_clock_source.sv"                                               -work dnn_accel_system_inst_clk_bfm                -cdslib ./cds_libs/dnn_accel_system_inst_clk_bfm.cds.lib               
   ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system.v"                                                          -work dnn_accel_system_inst                        -cdslib ./cds_libs/dnn_accel_system_inst.cds.lib                       
-  ncvlog -sv $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_clock_source.sv"                                               -work SDRAM_my_partner_clk_bfm                     -cdslib ./cds_libs/SDRAM_my_partner_clk_bfm.cds.lib                    
-  ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_sdram_partner_module.v"                                               -work SDRAM_my_partner                             -cdslib ./cds_libs/SDRAM_my_partner.cds.lib                            
   ncvlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/dnn_accel_system_tb.v"                                                                                                                                                                                            
 fi
 

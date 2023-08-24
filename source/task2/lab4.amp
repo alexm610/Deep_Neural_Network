@@ -2,7 +2,7 @@
     <architecture>Nios II</architecture>
     <system>
         <system_info filepath="true">dnn_accel_system.sopcinfo</system_info>
-        <system_sof filepath="true">output_files/task2.sof</system_sof>
+        <system_sof filepath="true">output_files/task0.sof</system_sof>
         <board>Not Required</board>
         <cable>DE-SoC [USB-1]</cable>
         <processor>nios2_gen2_0</processor>

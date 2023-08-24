@@ -1,4 +1,4 @@
-module task2(input logic CLOCK_50, input logic [3:0] KEY, // KEY[3] is async active-low reset
+module task0 (input logic CLOCK_50, input logic [3:0] KEY, // KEY[3] is async active-low reset
              input logic [9:0] SW, output logic [9:0] LEDR,
              output logic DRAM_CLK, output logic DRAM_CKE,
              output logic DRAM_CAS_N, output logic DRAM_RAS_N, output logic DRAM_WE_N,
@@ -25,5 +25,4 @@ module task2(input logic CLOCK_50, input logic [3:0] KEY, // KEY[3] is async act
                          .sdram_ras_n(DRAM_RAS_N),
                          .sdram_we_n(DRAM_WE_N),
                          .hex_export(HEX0));
-endmodule: task2
-
+endmodule: task0

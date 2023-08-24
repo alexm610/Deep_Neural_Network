@@ -18,18 +18,18 @@
 // altera message_level Level1 
 // altera message_off 10034 10035 10036 10037 10230 10240 10030 
 
-module dnn_accel_system_SDRAM_test_component_ram_module (
-                                                          // inputs:
-                                                           data,
-                                                           rdaddress,
-                                                           rdclken,
-                                                           wraddress,
-                                                           wrclock,
-                                                           wren,
+module dnn_accel_system_sdram_controller_test_component_ram_module (
+                                                                     // inputs:
+                                                                      data,
+                                                                      rdaddress,
+                                                                      rdclken,
+                                                                      wraddress,
+                                                                      wrclock,
+                                                                      wren,
 
-                                                          // outputs:
-                                                           q
-                                                        )
+                                                                     // outputs:
+                                                                      q
+                                                                   )
 ;
 
   output  [ 15: 0] q;
@@ -57,7 +57,7 @@ reg     [ 24: 0] read_address;
   assign q = mem_array[read_address];
 
 initial
-    $readmemh("dnn_accel_system_SDRAM_test_component.dat", mem_array);
+    $readmemh("dnn_accel_system_sdram_controller_test_component.dat", mem_array);
   always @(posedge wrclock)
     begin
       // Write data
@@ -111,21 +111,21 @@ endmodule
 // altera message_level Level1 
 // altera message_off 10034 10035 10036 10037 10230 10240 10030 
 
-module dnn_accel_system_SDRAM_test_component (
-                                               // inputs:
-                                                clk,
-                                                zs_addr,
-                                                zs_ba,
-                                                zs_cas_n,
-                                                zs_cke,
-                                                zs_cs_n,
-                                                zs_dqm,
-                                                zs_ras_n,
-                                                zs_we_n,
+module dnn_accel_system_sdram_controller_test_component (
+                                                          // inputs:
+                                                           clk,
+                                                           zs_addr,
+                                                           zs_ba,
+                                                           zs_cas_n,
+                                                           zs_cke,
+                                                           zs_cs_n,
+                                                           zs_dqm,
+                                                           zs_ras_n,
+                                                           zs_we_n,
 
-                                               // outputs:
-                                                zs_dq
-                                             )
+                                                          // outputs:
+                                                           zs_dq
+                                                        )
 ;
 
   inout   [ 15: 0] zs_dq;
@@ -177,12 +177,12 @@ initial
     $write("\n");
     $write("************************************************************\n");
     $write("This testbench includes an SOPC Builder Generated Altera model:\n");
-    $write("'dnn_accel_system_SDRAM_test_component.v', to simulate accesses to SDRAM.\n");
-    $write("Initial contents are loaded from the file: 'dnn_accel_system_SDRAM_test_component.dat'.\n");
+    $write("'dnn_accel_system_sdram_controller_test_component.v', to simulate accesses to SDRAM.\n");
+    $write("Initial contents are loaded from the file: 'dnn_accel_system_sdram_controller_test_component.dat'.\n");
     $write("************************************************************\n");
   end
   //Synchronous write when (CODE == 24'h205752 (write))
-  dnn_accel_system_SDRAM_test_component_ram_module dnn_accel_system_SDRAM_test_component_ram
+  dnn_accel_system_sdram_controller_test_component_ram_module dnn_accel_system_sdram_controller_test_component_ram
     (
       .data      (rmw_temp),
       .q         (read_data),

@@ -53,3 +53,6 @@ niosII_jtag_uart.elf: $(OBJS)
 CLEAN: 
 	$(RM) niosII_jtag_uart.srec niosII_jtag_uart.elf $(OBJS)
 
+compile: COMPILE
+clean: CLEAN
+

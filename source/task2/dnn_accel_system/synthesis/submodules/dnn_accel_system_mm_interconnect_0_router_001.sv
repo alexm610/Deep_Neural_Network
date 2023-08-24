@@ -44,10 +44,10 @@
 
 module dnn_accel_system_mm_interconnect_0_router_001_default_decode
   #(
-     parameter DEFAULT_CHANNEL = 1,
+     parameter DEFAULT_CHANNEL = 2,
                DEFAULT_WR_CHANNEL = -1,
                DEFAULT_RD_CHANNEL = -1,
-               DEFAULT_DESTID = 6 
+               DEFAULT_DESTID = 4 
    )
   (output [90 - 88 : 0] default_destination_id,
    output [7-1 : 0] default_wr_channel,
@@ -135,7 +135,8 @@ module dnn_accel_system_mm_interconnect_0_router_001
     // during address decoding
     // -------------------------------------------------------
     localparam PAD0 = log2ceil(64'h1000 - 64'h800); 
-    localparam PAD1 = log2ceil(64'h10000 - 64'h8000); 
+    localparam PAD1 = log2ceil(64'h1008 - 64'h1000); 
+    localparam PAD2 = log2ceil(64'h10000 - 64'h8000); 
     // -------------------------------------------------------
     // Work out which address bits are significant based on the
     // address range of the slaves. If the required width is too
@@ -191,14 +192,20 @@ module dnn_accel_system_mm_interconnect_0_router_001
 
     // ( 0x800 .. 0x1000 )
     if ( {address[RG:PAD0],{PAD0{1'b0}}} == 16'h800   ) begin
-            src_channel = 7'b01;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 5;
+            src_channel = 7'b010;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
+    end
+
+    // ( 0x1000 .. 0x1008 )
+    if ( {address[RG:PAD1],{PAD1{1'b0}}} == 16'h1000   ) begin
+            src_channel = 7'b001;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
     end
 
     // ( 0x8000 .. 0x10000 )
-    if ( {address[RG:PAD1],{PAD1{1'b0}}} == 16'h8000   ) begin
-            src_channel = 7'b10;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 6;
+    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 16'h8000   ) begin
+            src_channel = 7'b100;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 4;
     end
 
 end
