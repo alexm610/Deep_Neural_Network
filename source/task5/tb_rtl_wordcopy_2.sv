@@ -23,12 +23,12 @@ module tb_rtl_wordcopy_2();
                         .master_writedata(master_writedata),
                         .master_readdatavalid(master_readdatavalid));
 
-    RAM         memory (.address(master_address),
+    /*RAM         memory (.address(master_address),
                         .clock(clk),
                         .data(master_writedata),
                         .wren(master_write),
                         .q(master_readdata));
-    
+    */
     initial forever begin
         clk = 1; #1;
         clk = 0; #1;        

@@ -9,7 +9,8 @@
    <inputclock preferredWidth="221" />
   </columns>
  </systemtable>
- <library expandedCategories="Project/Alex_Manak,Library,Project" />
- <window width="1296" height="1000" x="-8" y="-8" />
+ <library
+   expandedCategories="Project,Library/Memory Interfaces and Controllers,Library/University Program,Library/University Program/Memory,Library/Memory Interfaces and Controllers/Memory Interfaces with UniPHY,Library" />
+ <window width="3361" height="2047" x="0" y="0" />
  <generation path="_PROJECT_NAME_" simulation="VERILOG" />
 </preferences>

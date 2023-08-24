@@ -11,8 +11,50 @@ module wordcopy (input logic clk, input logic rst_n,
                 output logic master_write, output logic [31:0] master_writedata);
 
     logic [31:0] destination, d, source, s, number_words, n;
+    int i = 6;
     enum {IDLE, COPY_SOURCE_DATA, WAIT_SOURCE_DATAVALID, PASTE_SOURCE_DATA, CHECK_WORDS_LEFT, DONE} state;
-    
+
+    always @(posedge clk) begin
+        if (!rst_n) begin
+            state <= IDLE;
+            // hold slave_waitrequest HIGH
+            slave_waitrequest <= 1'b1; 
+            
+            destination <= 32'd0;
+            source <= 32'd0;
+            number_words <= 32'd0;
+            // reset SDRAM control signal to zero
+            master_address <= 32'd0;
+            master_read <= 1'd0;
+            master_write <= 1'd0;
+            master_writedata <= 32'd0;
+        end else case (state)
+            IDLE: begin
+                // wait for CPU to start the module
+                slave_waitrequest <= 0;
+                state <= (slave_write == 1'd1) ? COPY_SOURCE_DATA : IDLE;
+                master_address <= 32'h0;
+                master_write <= 1'd0;
+                master_writedata <= i[31:0];
+            end
+            COPY_SOURCE_DATA: begin
+                slave_waitrequest <= 1;
+                master_write <= 1;
+                master_writedata <= i[31:0];
+                master_address <= master_address + 32'h4;
+                i <= i + 1'd1;
+                state <= (i[31:0] <= 32'd1000) ? COPY_SOURCE_DATA : DONE;
+            end
+            DONE: begin
+                master_write <= 0;
+                state <= DONE;
+                slave_waitrequest <= 0;
+            end
+        endcase 
+    end
+
+
+    /* initial algorithm
     always @(posedge clk) begin
         if (!rst_n) begin
             state <= IDLE;
@@ -28,7 +70,7 @@ module wordcopy (input logic clk, input logic rst_n,
             master_writedata <= 32'd0;
         end else case (state)
             IDLE: begin
-                /* Waiting for CPU to start this module */
+                // Waiting for CPU to start this module 
                 // remember, the CPU will write to byte offsets 1, 2, and 3 BEFORE triggering the module from byte offset 0. 
                 // do not reset the data for the following three registers, because after the CPU writes to another byte offset, the data will be lost
                 destination <= ({slave_address, slave_write} == {4'd1, 1'd1}) ? slave_writedata : destination; 
@@ -73,4 +115,5 @@ module wordcopy (input logic clk, input logic rst_n,
             end
         endcase
     end
+    */
 endmodule: wordcopy

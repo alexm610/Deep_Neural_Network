@@ -19,6 +19,12 @@ unsigned num_pixels = sizeof(pixel_list)/2;
 int main() {
 	unsigned i, j, y, x, colour, pixel;
 
+	//*(wordcopy_acc + 1) = (unsigned) 0x00008040;
+    //*(wordcopy_acc + 2) = (unsigned) 0x00008000;
+    //*(wordcopy_acc + 3) = (unsigned) 1;
+    *wordcopy_acc = 1; /* start */
+    *wordcopy_acc; /* make sure the accelerator is finished */
+
 	*memory_location = 0xAAAAAAAA;
 	// VGA Blurred dog printing 
 	for (y = 0; y < 120; y++) {
@@ -27,11 +33,7 @@ int main() {
 		}
 	}
 
-	//*(wordcopy_acc + 1) = (unsigned) 0x00008040;
-    //*(wordcopy_acc + 2) = (unsigned) 0x00008000;
-    //*(wordcopy_acc + 3) = (unsigned) 1;
-    *wordcopy_acc = 0; /* start */
-    *wordcopy_acc; /* make sure the accelerator is finished */
+
 	
 
 	//INITIAL ALGORITHM 
