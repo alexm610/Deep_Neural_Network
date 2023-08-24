@@ -19,10 +19,16 @@ module dnn_accel_system (
 		output wire        sdram_ras_n,       //           .ras_n
 		output wire        sdram_we_n,        //           .we_n
 		output wire        sdram_clk_clk,     //  sdram_clk.clk
-		input  wire [7:0]  switches_export    //   switches.export
+		input  wire [7:0]  switches_export,   //   switches.export
+		output wire [7:0]  vga_vga_blu,       //        vga.vga_blu
+		output wire        vga_vga_clk,       //           .vga_clk
+		output wire [7:0]  vga_vga_grn,       //           .vga_grn
+		output wire        vga_vga_hsync,     //           .vga_hsync
+		output wire [7:0]  vga_vga_red,       //           .vga_red
+		output wire        vga_vga_vsync      //           .vga_vsync
 	);
 
-	wire         pll_0_outclk0_clk;                                           // pll_0:outclk_0 -> [LEDs:clk, hex0:clk, irq_mapper:clk, jtag_uart_0:clk, mm_interconnect_0:pll_0_outclk0_clk, nios2_gen2_0:clk, onchip_memory2_0:clk, rst_controller:clk, sdram_controller:clk, switches:clk]
+	wire         pll_0_outclk0_clk;                                           // pll_0:outclk_0 -> [LEDs:clk, hex0:clk, irq_mapper:clk, jtag_uart_0:clk, mm_interconnect_0:pll_0_outclk0_clk, nios2_gen2_0:clk, onchip_memory2_0:clk, rst_controller:clk, sdram_controller:clk, switches:clk, vga_avalon_0:clk]
 	wire  [31:0] nios2_gen2_0_data_master_readdata;                           // mm_interconnect_0:nios2_gen2_0_data_master_readdata -> nios2_gen2_0:d_readdata
 	wire         nios2_gen2_0_data_master_waitrequest;                        // mm_interconnect_0:nios2_gen2_0_data_master_waitrequest -> nios2_gen2_0:d_waitrequest
 	wire         nios2_gen2_0_data_master_debugaccess;                        // nios2_gen2_0:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:nios2_gen2_0_data_master_debugaccess
@@ -42,6 +48,11 @@ module dnn_accel_system (
 	wire         mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read;        // mm_interconnect_0:jtag_uart_0_avalon_jtag_slave_read -> jtag_uart_0:av_read_n
 	wire         mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_write;       // mm_interconnect_0:jtag_uart_0_avalon_jtag_slave_write -> jtag_uart_0:av_write_n
 	wire  [31:0] mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_writedata;   // mm_interconnect_0:jtag_uart_0_avalon_jtag_slave_writedata -> jtag_uart_0:av_writedata
+	wire  [31:0] mm_interconnect_0_vga_avalon_0_avalon_slave_0_readdata;      // vga_avalon_0:readdata -> mm_interconnect_0:vga_avalon_0_avalon_slave_0_readdata
+	wire   [3:0] mm_interconnect_0_vga_avalon_0_avalon_slave_0_address;       // mm_interconnect_0:vga_avalon_0_avalon_slave_0_address -> vga_avalon_0:address
+	wire         mm_interconnect_0_vga_avalon_0_avalon_slave_0_read;          // mm_interconnect_0:vga_avalon_0_avalon_slave_0_read -> vga_avalon_0:read
+	wire         mm_interconnect_0_vga_avalon_0_avalon_slave_0_write;         // mm_interconnect_0:vga_avalon_0_avalon_slave_0_write -> vga_avalon_0:write
+	wire  [31:0] mm_interconnect_0_vga_avalon_0_avalon_slave_0_writedata;     // mm_interconnect_0:vga_avalon_0_avalon_slave_0_writedata -> vga_avalon_0:writedata
 	wire  [31:0] mm_interconnect_0_nios2_gen2_0_debug_mem_slave_readdata;     // nios2_gen2_0:debug_mem_slave_readdata -> mm_interconnect_0:nios2_gen2_0_debug_mem_slave_readdata
 	wire         mm_interconnect_0_nios2_gen2_0_debug_mem_slave_waitrequest;  // nios2_gen2_0:debug_mem_slave_waitrequest -> mm_interconnect_0:nios2_gen2_0_debug_mem_slave_waitrequest
 	wire         mm_interconnect_0_nios2_gen2_0_debug_mem_slave_debugaccess;  // mm_interconnect_0:nios2_gen2_0_debug_mem_slave_debugaccess -> nios2_gen2_0:debug_mem_slave_debugaccess
@@ -80,7 +91,7 @@ module dnn_accel_system (
 	wire  [31:0] mm_interconnect_0_hex0_s1_writedata;                         // mm_interconnect_0:hex0_s1_writedata -> hex0:writedata
 	wire         irq_mapper_receiver0_irq;                                    // jtag_uart_0:av_irq -> irq_mapper:receiver0_irq
 	wire  [31:0] nios2_gen2_0_irq_irq;                                        // irq_mapper:sender_irq -> nios2_gen2_0:irq
-	wire         rst_controller_reset_out_reset;                              // rst_controller:reset_out -> [LEDs:reset_n, hex0:reset_n, irq_mapper:reset, jtag_uart_0:rst_n, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, rst_translator:in_reset, sdram_controller:reset_n, switches:reset_n]
+	wire         rst_controller_reset_out_reset;                              // rst_controller:reset_out -> [LEDs:reset_n, hex0:reset_n, irq_mapper:reset, jtag_uart_0:rst_n, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, rst_translator:in_reset, sdram_controller:reset_n, switches:reset_n, vga_avalon_0:reset_n]
 	wire         rst_controller_reset_out_reset_req;                          // rst_controller:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_0:reset_req, rst_translator:reset_req_in]
 	wire         nios2_gen2_0_debug_reset_request_reset;                      // nios2_gen2_0:debug_reset_request -> rst_controller:reset_in1
 
@@ -201,6 +212,22 @@ module dnn_accel_system (
 		.in_port  (switches_export)                         // external_connection.export
 	);
 
+	vga_avalon vga_avalon_0 (
+		.reset_n   (~rst_controller_reset_out_reset),                         //              reset.reset_n
+		.address   (mm_interconnect_0_vga_avalon_0_avalon_slave_0_address),   //     avalon_slave_0.address
+		.read      (mm_interconnect_0_vga_avalon_0_avalon_slave_0_read),      //                   .read
+		.readdata  (mm_interconnect_0_vga_avalon_0_avalon_slave_0_readdata),  //                   .readdata
+		.write     (mm_interconnect_0_vga_avalon_0_avalon_slave_0_write),     //                   .write
+		.writedata (mm_interconnect_0_vga_avalon_0_avalon_slave_0_writedata), //                   .writedata
+		.clk       (pll_0_outclk0_clk),                                       //         clock_sink.clk
+		.vga_blu   (vga_vga_blu),                                             // conduit_vga_export.vga_blu
+		.vga_clk   (vga_vga_clk),                                             //                   .vga_clk
+		.vga_grn   (vga_vga_grn),                                             //                   .vga_grn
+		.vga_hsync (vga_vga_hsync),                                           //                   .vga_hsync
+		.vga_red   (vga_vga_red),                                             //                   .vga_red
+		.vga_vsync (vga_vga_vsync)                                            //                   .vga_vsync
+	);
+
 	dnn_accel_system_mm_interconnect_0 mm_interconnect_0 (
 		.pll_0_outclk0_clk                              (pll_0_outclk0_clk),                                           //                            pll_0_outclk0.clk
 		.nios2_gen2_0_reset_reset_bridge_in_reset_reset (rst_controller_reset_out_reset),                              // nios2_gen2_0_reset_reset_bridge_in_reset.reset
@@ -258,7 +285,12 @@ module dnn_accel_system (
 		.sdram_controller_s1_waitrequest                (mm_interconnect_0_sdram_controller_s1_waitrequest),           //                                         .waitrequest
 		.sdram_controller_s1_chipselect                 (mm_interconnect_0_sdram_controller_s1_chipselect),            //                                         .chipselect
 		.switches_s1_address                            (mm_interconnect_0_switches_s1_address),                       //                              switches_s1.address
-		.switches_s1_readdata                           (mm_interconnect_0_switches_s1_readdata)                       //                                         .readdata
+		.switches_s1_readdata                           (mm_interconnect_0_switches_s1_readdata),                      //                                         .readdata
+		.vga_avalon_0_avalon_slave_0_address            (mm_interconnect_0_vga_avalon_0_avalon_slave_0_address),       //              vga_avalon_0_avalon_slave_0.address
+		.vga_avalon_0_avalon_slave_0_write              (mm_interconnect_0_vga_avalon_0_avalon_slave_0_write),         //                                         .write
+		.vga_avalon_0_avalon_slave_0_read               (mm_interconnect_0_vga_avalon_0_avalon_slave_0_read),          //                                         .read
+		.vga_avalon_0_avalon_slave_0_readdata           (mm_interconnect_0_vga_avalon_0_avalon_slave_0_readdata),      //                                         .readdata
+		.vga_avalon_0_avalon_slave_0_writedata          (mm_interconnect_0_vga_avalon_0_avalon_slave_0_writedata)      //                                         .writedata
 	);
 
 	dnn_accel_system_irq_mapper irq_mapper (
