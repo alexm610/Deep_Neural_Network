@@ -24,7 +24,7 @@ module wordcopy (input logic clk, input logic rst_n,
             source <= 32'd0;
             number_words <= 32'd0;
             // reset SDRAM control signal to zero
-            master_address <= 32'd0;
+            master_address <= 32'h00008000;
             master_read <= 1'd0;
             master_write <= 1'd0;
             master_writedata <= 32'd0;
