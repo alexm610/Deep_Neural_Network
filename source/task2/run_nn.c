@@ -36,7 +36,8 @@ volatile unsigned *act_acc      = (volatile unsigned *) 0x00001200; /* DOT produ
 volatile      int *vga          = (volatile      int *) 0x00004000; /* VGA adapter base address */
 volatile      int *bank0        = (volatile      int *) 0x00006000; /* SRAM bank0 */
 volatile      int *bank1        = (volatile      int *) 0x00007000; /* SRAM bank1 */
-
+volatile unsigned *leds         = (volatile unsigned *) 0x00000010;
+volatile unsigned *switches     = (volatile unsigned *) 0x00000000;
 /* normally these would be contiguous but it's nice to know where they are for debugging */
 volatile int *nn      = (volatile int *) 0x08000000; /* neural network biases and weights */
 volatile int *input   = (volatile int *) 0x08800000; /* input image */
@@ -257,5 +258,10 @@ int main()
   #endif
 
     *hex = hex7seg( result );
+    
+    while (1) {
+      *leds = *switches;
+    }
     return 0;
+
 }

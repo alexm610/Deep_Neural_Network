@@ -28,17 +28,17 @@ OCFLAGS		:= -O srec
 
 # Files
 HDRS		:=
-SRCS		:= amp/lib/src/niosII_jtag_uart.c run_nn.c
+SRCS		:= run_nn.c amp/lib/src/niosII_jtag_uart.c
 OBJS		:= $(patsubst %, %.o, $(SRCS))
 
 # Targets
-COMPILE: niosII_jtag_uart.srec
+COMPILE: run_nn.srec
 
-niosII_jtag_uart.srec: niosII_jtag_uart.elf
+run_nn.srec: run_nn.elf
 	$(RM) $@
 	$(OC) $(OCFLAGS) $< $@
 
-niosII_jtag_uart.elf: $(OBJS)
+run_nn.elf: $(OBJS)
 	$(RM) $@
 	$(CC) $(LDFLAGS) $(OBJS) -o $@
 
@@ -51,8 +51,5 @@ niosII_jtag_uart.elf: $(OBJS)
 	$(AS) $(ASFLAGS) $< -o $@
 
 CLEAN: 
-	$(RM) niosII_jtag_uart.srec niosII_jtag_uart.elf $(OBJS)
-
-compile: COMPILE
-clean: CLEAN
+	$(RM) run_nn.srec run_nn.elf $(OBJS)
 
