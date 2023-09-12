@@ -228,7 +228,11 @@
    internal="switches.external_connection"
    type="conduit"
    dir="end" />
- <interface name="vga" internal="vga_avalon.conduit_vga_export" />
+ <interface
+   name="vga"
+   internal="vga_avalon.conduit_vga_export"
+   type="conduit"
+   dir="end" />
  <module name="LEDs" kind="altera_avalon_pio" version="19.1" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
@@ -306,7 +310,7 @@
   <parameter name="dataAddrWidth" value="28" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='switches.s1' start='0x0' end='0x10' type='altera_avalon_pio.s1' /><slave name='LEDs.s1' start='0x10' end='0x20' type='altera_avalon_pio.s1' /><slave name='nios2_gen2_0.debug_mem_slave' start='0x800' end='0x1000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x1000' end='0x1008' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='hex0.s1' start='0x1010' end='0x1020' type='altera_avalon_pio.s1' /><slave name='onchip_memory2_0.s1' start='0x8000' end='0x10000' type='altera_avalon_onchip_memory2.s1' /><slave name='sdram_controller.s1' start='0x8000000' end='0xC000000' type='altera_avalon_new_sdram_controller.s1' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='switches.s1' start='0x0' end='0x10' type='altera_avalon_pio.s1' /><slave name='LEDs.s1' start='0x10' end='0x20' type='altera_avalon_pio.s1' /><slave name='nios2_gen2_0.debug_mem_slave' start='0x800' end='0x1000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x1000' end='0x1008' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='hex0.s1' start='0x1010' end='0x1020' type='altera_avalon_pio.s1' /><slave name='vga_avalon.avalon_slave_0' start='0x4000' end='0x4040' type='vga_avalon.avalon_slave_0' /><slave name='onchip_memory2_0.s1' start='0x8000' end='0x10000' type='altera_avalon_onchip_memory2.s1' /><slave name='sdram_controller.s1' start='0x8000000' end='0xC000000' type='altera_avalon_new_sdram_controller.s1' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -470,7 +474,7 @@
    version="19.1"
    enabled="1">
   <parameter name="allowInSystemMemoryContentEditor" value="false" />
-  <parameter name="autoInitializationFileName">dnn_accel_system_onchip_memory2_0</parameter>
+  <parameter name="autoInitializationFileName">$${FILENAME}_onchip_memory2_0</parameter>
   <parameter name="blockType" value="AUTO" />
   <parameter name="copyInitFile" value="false" />
   <parameter name="dataWidth" value="32" />
@@ -742,7 +746,7 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="8" />
  </module>
- <module name="vga_avalon" kind="vga_avalon" version="1.0" enabled="0" />
+ <module name="vga_avalon" kind="vga_avalon" version="1.0" enabled="1" />
  <connection
    kind="avalon"
    version="19.1"

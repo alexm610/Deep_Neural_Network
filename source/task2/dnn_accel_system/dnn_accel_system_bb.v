@@ -15,7 +15,13 @@ module dnn_accel_system (
 	sdram_ras_n,
 	sdram_we_n,
 	sdram_clk_clk,
-	switches_export);	
+	switches_export,
+	vga_vga_blu,
+	vga_vga_clk,
+	vga_vga_grn,
+	vga_vga_hsync,
+	vga_vga_red,
+	vga_vga_vsync);	
 
 	input		clk_clk;
 	output	[6:0]	hex_export;
@@ -33,4 +39,10 @@ module dnn_accel_system (
 	output		sdram_we_n;
 	output		sdram_clk_clk;
 	input	[7:0]	switches_export;
+	output	[7:0]	vga_vga_blu;
+	output		vga_vga_clk;
+	output	[7:0]	vga_vga_grn;
+	output		vga_vga_hsync;
+	output	[7:0]	vga_vga_red;
+	output		vga_vga_vsync;
 endmodule

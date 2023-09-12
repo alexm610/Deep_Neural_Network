@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <simPackage>
  <file
-   path="simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_005_error_adapter_0.sv"
+   path="simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_006_error_adapter_0.sv"
    type="SYSTEM_VERILOG"
    library="error_adapter_0" />
  <file
@@ -9,9 +9,9 @@
    type="SYSTEM_VERILOG"
    library="error_adapter_0" />
  <file
-   path="simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_005.v"
+   path="simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_006.v"
    type="VERILOG"
-   library="avalon_st_adapter_005" />
+   library="avalon_st_adapter_006" />
  <file
    path="simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter.v"
    type="VERILOG"
@@ -45,21 +45,21 @@
    type="SYSTEM_VERILOG"
    library="rsp_mux" />
  <file
-   path="simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_demux_003.sv"
+   path="simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_demux_001.sv"
    type="SYSTEM_VERILOG"
-   library="rsp_demux_003" />
+   library="rsp_demux_001" />
  <file
    path="simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_demux.sv"
    type="SYSTEM_VERILOG"
    library="rsp_demux" />
  <file
-   path="simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_mux_003.sv"
+   path="simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_mux_001.sv"
    type="SYSTEM_VERILOG"
-   library="cmd_mux_003" />
+   library="cmd_mux_001" />
  <file
    path="simulation/submodules/altera_merlin_arbitrator.sv"
    type="SYSTEM_VERILOG"
-   library="cmd_mux_003" />
+   library="cmd_mux_001" />
  <file
    path="simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_mux.sv"
    type="SYSTEM_VERILOG"
@@ -117,13 +117,13 @@
    type="SYSTEM_VERILOG"
    library="sdram_controller_s1_burst_adapter" />
  <file
-   path="simulation/submodules/dnn_accel_system_mm_interconnect_0_router_007.sv"
+   path="simulation/submodules/dnn_accel_system_mm_interconnect_0_router_008.sv"
    type="SYSTEM_VERILOG"
-   library="router_007" />
+   library="router_008" />
  <file
-   path="simulation/submodules/dnn_accel_system_mm_interconnect_0_router_005.sv"
+   path="simulation/submodules/dnn_accel_system_mm_interconnect_0_router_003.sv"
    type="SYSTEM_VERILOG"
-   library="router_005" />
+   library="router_003" />
  <file
    path="simulation/submodules/dnn_accel_system_mm_interconnect_0_router_002.sv"
    type="SYSTEM_VERILOG"
@@ -244,6 +244,26 @@
    path="simulation/submodules/dnn_accel_system_mm_interconnect_0.v"
    type="VERILOG"
    library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/vga_avalon.sv"
+   type="SYSTEM_VERILOG"
+   library="vga_avalon" />
+ <file
+   path="simulation/submodules/vga_adapter.sv"
+   type="SYSTEM_VERILOG"
+   library="vga_avalon" />
+ <file
+   path="simulation/submodules/vga_address_translator.sv"
+   type="SYSTEM_VERILOG"
+   library="vga_avalon" />
+ <file
+   path="simulation/submodules/vga_controller.sv"
+   type="SYSTEM_VERILOG"
+   library="vga_avalon" />
+ <file
+   path="simulation/submodules/vga_pll.sv"
+   type="SYSTEM_VERILOG"
+   library="vga_avalon" />
  <file
    path="simulation/submodules/dnn_accel_system_switches.v"
    type="VERILOG"

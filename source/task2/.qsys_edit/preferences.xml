@@ -10,5 +10,8 @@
  </systemtable>
  <library expandedCategories="Project,Library" />
  <window width="3862" height="2122" x="-11" y="-11" />
- <generation testbench_system="STANDARD" simulation="VERILOG" />
+ <generation
+   testbench_system="STANDARD"
+   simulation="VERILOG"
+   path="_PROJECT_NAME_" />
 </preferences>

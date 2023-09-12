@@ -45,7 +45,7 @@ module tb_task2();
         KEY[3] = 1; 
 
         SW = 8'hAA;
-        #100000;
+        #100010; // one microsecond
 
         $stop;
     end

@@ -50,9 +50,9 @@ module dnn_accel_system_mm_interconnect_0_router_001_default_decode
                DEFAULT_DESTID = 4 
    )
   (output [90 - 88 : 0] default_destination_id,
-   output [7-1 : 0] default_wr_channel,
-   output [7-1 : 0] default_rd_channel,
-   output [7-1 : 0] default_src_channel
+   output [8-1 : 0] default_wr_channel,
+   output [8-1 : 0] default_rd_channel,
+   output [8-1 : 0] default_src_channel
   );
 
   assign default_destination_id = 
@@ -63,7 +63,7 @@ module dnn_accel_system_mm_interconnect_0_router_001_default_decode
       assign default_src_channel = '0;
     end
     else begin : default_channel_assignment
-      assign default_src_channel = 7'b1 << DEFAULT_CHANNEL;
+      assign default_src_channel = 8'b1 << DEFAULT_CHANNEL;
     end
   endgenerate
 
@@ -73,8 +73,8 @@ module dnn_accel_system_mm_interconnect_0_router_001_default_decode
       assign default_rd_channel = '0;
     end
     else begin : default_rw_channel_assignment
-      assign default_wr_channel = 7'b1 << DEFAULT_WR_CHANNEL;
-      assign default_rd_channel = 7'b1 << DEFAULT_RD_CHANNEL;
+      assign default_wr_channel = 8'b1 << DEFAULT_WR_CHANNEL;
+      assign default_rd_channel = 8'b1 << DEFAULT_RD_CHANNEL;
     end
   endgenerate
 
@@ -103,7 +103,7 @@ module dnn_accel_system_mm_interconnect_0_router_001
     // -------------------
     output                          src_valid,
     output reg [104-1    : 0] src_data,
-    output reg [7-1 : 0] src_channel,
+    output reg [8-1 : 0] src_channel,
     output                          src_startofpacket,
     output                          src_endofpacket,
     input                           src_ready
@@ -119,7 +119,7 @@ module dnn_accel_system_mm_interconnect_0_router_001
     localparam PKT_PROTECTION_H = 94;
     localparam PKT_PROTECTION_L = 92;
     localparam ST_DATA_W = 104;
-    localparam ST_CHANNEL_W = 7;
+    localparam ST_CHANNEL_W = 8;
     localparam DECODER_TYPE = 0;
 
     localparam PKT_TRANS_WRITE = 66;
@@ -166,7 +166,7 @@ module dnn_accel_system_mm_interconnect_0_router_001
     assign src_startofpacket = sink_startofpacket;
     assign src_endofpacket   = sink_endofpacket;
     wire [PKT_DEST_ID_W-1:0] default_destid;
-    wire [7-1 : 0] default_src_channel;
+    wire [8-1 : 0] default_src_channel;
 
 
 
@@ -192,19 +192,19 @@ module dnn_accel_system_mm_interconnect_0_router_001
 
     // ( 0x800 .. 0x1000 )
     if ( {address[RG:PAD0],{PAD0{1'b0}}} == 16'h800   ) begin
-            src_channel = 7'b010;
+            src_channel = 8'b010;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
     end
 
     // ( 0x1000 .. 0x1008 )
     if ( {address[RG:PAD1],{PAD1{1'b0}}} == 16'h1000   ) begin
-            src_channel = 7'b001;
+            src_channel = 8'b001;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
     end
 
     // ( 0x8000 .. 0x10000 )
     if ( {address[RG:PAD2],{PAD2{1'b0}}} == 16'h8000   ) begin
-            src_channel = 7'b100;
+            src_channel = 8'b100;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 4;
     end
 
