@@ -38,6 +38,7 @@ volatile      int *bank0        = (volatile      int *) 0x00006000; /* SRAM bank
 volatile      int *bank1        = (volatile      int *) 0x00007000; /* SRAM bank1 */
 volatile unsigned *leds         = (volatile unsigned *) 0x00000010;
 volatile unsigned *switches     = (volatile unsigned *) 0x00000000;
+volatile unsigned *sram_inst    = (volatile unsigned *) 0x00008000; /* SRAM instruction memory */
 /* normally these would be contiguous but it's nice to know where they are for debugging */
 volatile int *nn      = (volatile int *) 0x08000000; /* neural network biases and weights */
 volatile int *input   = (volatile int *) 0x08800000; /* input image */
@@ -46,7 +47,7 @@ volatile int *l2_acts = (volatile int *) 0x08802000; /* activations of layer 2 *
 volatile int *l3_acts = (volatile int *) 0x08803000; /* activations of layer 3 (outputs) */
 
 
-#include "../task4/vga_plot.c"
+#include "vga_plot.c"
 //#include "vga_plot.c"
 
 
@@ -256,11 +257,13 @@ int main()
     result = 1; // use this to print "1" to indicate "correct" on 7seg
     result = 10; // use this to print "-" on 7seg
   #endif
-
-    *hex = hex7seg( result );
-    
+	volatile int *address      = (volatile int *) 0x000089C0; /* neural network biases and weights */
+	int i = 0;
     while (1) {
-      *leds = *switches;
+      	*leds = *switches;
+    	wordcopy(address, nn, 4);
+		wordcopy(address + 0x10, nn, 4);
+	  	i += 4;
     }
     return 0;
 
