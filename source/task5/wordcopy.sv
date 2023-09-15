@@ -19,48 +19,6 @@ module wordcopy (input logic clk, input logic rst_n,
             state <= IDLE;
             // hold slave_waitrequest HIGH
             slave_waitrequest <= 1'b1; 
-            
-            destination <= 32'd0;
-            source <= 32'd0;
-            number_words <= 32'd0;
-            // reset SDRAM control signal to zero
-            master_address <= 32'h00008000;
-            master_read <= 1'd0;
-            master_write <= 1'd0;
-            master_writedata <= 32'd0;
-        end else case (state)
-            IDLE: begin
-                // wait for CPU to start the module
-                slave_waitrequest <= 0;
-                state <= (slave_write == 1'd1) ? COPY_SOURCE_DATA : IDLE;
-                master_address <= 32'h0;
-                master_write <= 1'd0;
-                master_writedata <= i[31:0];
-            end
-            COPY_SOURCE_DATA: begin
-                slave_waitrequest <= 1;
-                master_write <= 1;
-                master_writedata <= i[31:0];
-                master_address <= master_address + 32'h4;
-                i <= i + 1'd1;
-                state <= (i[31:0] <= 32'd1000) ? COPY_SOURCE_DATA : DONE;
-            end
-            DONE: begin
-                master_write <= 0;
-                state <= DONE;
-                slave_waitrequest <= 0;
-                master_read <= 0;
-            end
-        endcase 
-    end
-
-
-    /* initial algorithm
-    always @(posedge clk) begin
-        if (!rst_n) begin
-            state <= IDLE;
-            // hold slave_waitrequest HIGH
-            slave_waitrequest <= 1'b1; 
             destination <= 32'd0;
             source <= 32'd0;
             number_words <= 32'd0;
@@ -116,5 +74,4 @@ module wordcopy (input logic clk, input logic rst_n,
             end
         endcase
     end
-    */
 endmodule: wordcopy

@@ -97,11 +97,11 @@ void wordcopy_sw( volatile int *dst, volatile int *src, int n_words )
 
 void wordcopy( volatile int *dst, volatile int *src, int n_words )
 {
-  #if ( DONE_TASK5 || DONE_TASK6 || DONE_TASK7 || DONE_TASK8 )
+  //#if ( DONE_TASK5 || DONE_TASK6 || DONE_TASK7 || DONE_TASK8 )
     wordcopy_hw( dst, src, n_words );
-  #else
-    wordcopy_sw( dst, src, n_words );
-  #endif
+  //#else
+    //wordcopy_sw( dst, src, n_words );
+  //#endif
 }
 
 
@@ -257,13 +257,13 @@ int main()
     result = 1; // use this to print "1" to indicate "correct" on 7seg
     result = 10; // use this to print "-" on 7seg
   #endif
-	volatile int *address      = (volatile int *) 0x000089C0; /* neural network biases and weights */
-	int i = 0;
+	volatile int *address	= (volatile int *) 0x000089C0; /* neural network biases and weights */
+	volatile int *address1	= (volatile int *) 0x00008AA0;
+	volatile int *i = (volatile int *) 0x0;
     while (1) {
-      	*leds = *switches;
+    	*leds = *switches;
     	wordcopy(address, nn, 4);
-		wordcopy(address + 0x10, nn, 4);
-	  	i += 4;
+	  	//i += 4;
     }
     return 0;
 

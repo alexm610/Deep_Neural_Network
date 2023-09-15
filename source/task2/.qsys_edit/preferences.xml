@@ -8,7 +8,7 @@
    <inputclock preferredWidth="190" />
   </columns>
  </systemtable>
- <library expandedCategories="Project/Alex_Manak,Project,Library" />
+ <library expandedCategories="Library,Project" />
  <window width="3862" height="2122" x="-11" y="-11" />
  <generation
    testbench_system="STANDARD"
