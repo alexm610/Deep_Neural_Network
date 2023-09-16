@@ -260,11 +260,9 @@ int main()
 	volatile int *address	= (volatile int *) 0x000089C0; /* neural network biases and weights */
 	volatile int *address1	= (volatile int *) 0x00008AA0;
 	volatile int *i = (volatile int *) 0x0;
-    while (1) {
-    	*leds = *switches;
-    	wordcopy(address, nn, 4);
-	  	//i += 4;
-    }
+    *leds = *switches;
+   	wordcopy(address, nn, 4);
+
     return 0;
 
 }
