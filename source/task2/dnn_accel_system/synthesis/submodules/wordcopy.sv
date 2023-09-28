@@ -55,7 +55,7 @@ module wordcopy (input logic clk, input logic rst_n,
                 state <= ({master_waitrequest} == {1'b0}) ? PASTE_SOURCE_DATA : WAIT_SOURCE_DATAVALID;
                 master_read <= ({master_waitrequest} == {1'b0}) ? 1'b0 : 1'b1; // keep master_read high when waiting for SDRAM to make itself available, when it is ready, we are no longer reading from it and we can switch it off
                 master_write <= ({master_waitrequest} == {1'b0}) ? 1'b1 : 1'b0; // only set master_write when we have successfully copied the data from source, we can then proceed to pasting
-                master_writedata <= ({master_waitrequest} == {1'b0}) ? master_readdata : 32'd0; // keep the data bus TO BE WRITTEN to memory zeroed-out, then set it to the data read from memory's source location
+                master_writedata <= ({master_waitrequest} == {1'b0}) ? master_readdata : 32'd5; // keep the data bus TO BE WRITTEN to memory zeroed-out, then set it to the data read from memory's source location
             end
             PASTE_SOURCE_DATA: begin
                 master_address <= ({master_waitrequest} == {1'b0}) ? destination : master_address; // wait for copy data to be valid, then update the master_address to the destination address
@@ -70,7 +70,7 @@ module wordcopy (input logic clk, input logic rst_n,
             end
             DONE: begin
                 state <= IDLE;
-                slave_readdata <= (slave_read) ? destination : slave_readdata;
+                slave_readdata <= (slave_read) ? 32'hDEADBEEF : 32'hABCDEF19;
             end
         endcase
     end

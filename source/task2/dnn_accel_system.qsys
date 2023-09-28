@@ -895,14 +895,14 @@
    kind="clock"
    version="19.1"
    start="pll_0.outclk0"
-   end="jtag_uart_0.clk" />
- <connection kind="clock" version="19.1" start="pll_0.outclk0" end="LEDs.clk" />
+   end="nios2_gen2_0.clk" />
  <connection kind="clock" version="19.1" start="pll_0.outclk0" end="switches.clk" />
+ <connection kind="clock" version="19.1" start="pll_0.outclk0" end="LEDs.clk" />
  <connection
    kind="clock"
    version="19.1"
    start="pll_0.outclk0"
-   end="nios2_gen2_0.clk" />
+   end="jtag_uart_0.clk" />
  <connection
    kind="clock"
    version="19.1"

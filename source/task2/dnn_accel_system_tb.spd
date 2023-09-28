@@ -6,7 +6,7 @@
    library="altera_common_sv_packages"
    systemVerilogPackageName="avalon_vip_verbosity_pkg" />
  <file
-   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_005_error_adapter_0.sv"
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_001_error_adapter_0.sv"
    type="SYSTEM_VERILOG"
    library="error_adapter_0" />
  <file
@@ -14,9 +14,9 @@
    type="SYSTEM_VERILOG"
    library="error_adapter_0" />
  <file
-   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_005.v"
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_001.v"
    type="VERILOG"
-   library="avalon_st_adapter_005" />
+   library="avalon_st_adapter_001" />
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter.v"
    type="VERILOG"
@@ -34,6 +34,14 @@
    type="SYSTEM_VERILOG"
    library="sdram_controller_s1_rsp_width_adapter" />
  <file
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_mux_002.sv"
+   type="SYSTEM_VERILOG"
+   library="rsp_mux_002" />
+ <file
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"
+   type="SYSTEM_VERILOG"
+   library="rsp_mux_002" />
+ <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_mux_001.sv"
    type="SYSTEM_VERILOG"
    library="rsp_mux_001" />
@@ -50,21 +58,17 @@
    type="SYSTEM_VERILOG"
    library="rsp_mux" />
  <file
-   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_demux_003.sv"
-   type="SYSTEM_VERILOG"
-   library="rsp_demux_003" />
- <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_demux.sv"
    type="SYSTEM_VERILOG"
    library="rsp_demux" />
  <file
-   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_mux_003.sv"
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_mux_002.sv"
    type="SYSTEM_VERILOG"
-   library="cmd_mux_003" />
+   library="cmd_mux_002" />
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"
    type="SYSTEM_VERILOG"
-   library="cmd_mux_003" />
+   library="cmd_mux_002" />
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_mux.sv"
    type="SYSTEM_VERILOG"
@@ -73,6 +77,10 @@
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"
    type="SYSTEM_VERILOG"
    library="cmd_mux" />
+ <file
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_demux_002.sv"
+   type="SYSTEM_VERILOG"
+   library="cmd_demux_002" />
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_demux_001.sv"
    type="SYSTEM_VERILOG"
@@ -122,13 +130,17 @@
    type="SYSTEM_VERILOG"
    library="sdram_controller_s1_burst_adapter" />
  <file
-   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_007.sv"
-   type="SYSTEM_VERILOG"
-   library="router_007" />
- <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_005.sv"
    type="SYSTEM_VERILOG"
    library="router_005" />
+ <file
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_004.sv"
+   type="SYSTEM_VERILOG"
+   library="router_004" />
+ <file
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_003.sv"
+   type="SYSTEM_VERILOG"
+   library="router_003" />
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_002.sv"
    type="SYSTEM_VERILOG"
@@ -144,27 +156,27 @@
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/altera_avalon_sc_fifo.v"
    type="VERILOG"
-   library="jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo" />
+   library="sdram_controller_s1_agent_rsp_fifo" />
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/altera_merlin_slave_agent.sv"
    type="SYSTEM_VERILOG"
-   library="jtag_uart_0_avalon_jtag_slave_agent" />
+   library="sdram_controller_s1_agent" />
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_uncompressor.sv"
    type="SYSTEM_VERILOG"
-   library="jtag_uart_0_avalon_jtag_slave_agent" />
+   library="sdram_controller_s1_agent" />
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/altera_merlin_master_agent.sv"
    type="SYSTEM_VERILOG"
-   library="nios2_gen2_0_data_master_agent" />
+   library="WordCopy_Accelerator_0_avalon_master_agent" />
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/altera_merlin_slave_translator.sv"
    type="SYSTEM_VERILOG"
-   library="jtag_uart_0_avalon_jtag_slave_translator" />
+   library="sdram_controller_s1_translator" />
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/altera_merlin_master_translator.sv"
    type="SYSTEM_VERILOG"
-   library="nios2_gen2_0_data_master_translator" />
+   library="WordCopy_Accelerator_0_avalon_master_translator" />
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_nios2_gen2_0_cpu.sdc"
    type="SDC"
@@ -250,6 +262,26 @@
    type="VERILOG"
    library="mm_interconnect_0" />
  <file
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/vga_avalon.sv"
+   type="SYSTEM_VERILOG"
+   library="vga_avalon" />
+ <file
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/vga_adapter.sv"
+   type="SYSTEM_VERILOG"
+   library="vga_avalon" />
+ <file
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/vga_address_translator.sv"
+   type="SYSTEM_VERILOG"
+   library="vga_avalon" />
+ <file
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/vga_controller.sv"
+   type="SYSTEM_VERILOG"
+   library="vga_avalon" />
+ <file
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/vga_pll.sv"
+   type="SYSTEM_VERILOG"
+   library="vga_avalon" />
+ <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_switches.v"
    type="VERILOG"
    library="switches" />
@@ -261,10 +293,6 @@
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_sdram_controller_test_component.v"
    type="VERILOG"
    library="sdram_controller" />
- <file
-   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_pll_0.vo"
-   type="VERILOG"
-   library="pll_0" />
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_onchip_memory2_0.hex"
    type="HEX"
@@ -286,6 +314,10 @@
    type="VERILOG"
    library="hex0" />
  <file
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/wordcopy.sv"
+   type="SYSTEM_VERILOG"
+   library="WordCopy_Accelerator_0" />
+ <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_LEDs.v"
    type="VERILOG"
    library="LEDs" />
@@ -296,15 +328,15 @@
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm_0004.sv"
    type="SYSTEM_VERILOG"
+   library="dnn_accel_system_inst_vga_bfm" />
+ <file
+   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm_0003.sv"
+   type="SYSTEM_VERILOG"
    library="dnn_accel_system_inst_switches_bfm" />
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/altera_avalon_reset_source.sv"
    type="SYSTEM_VERILOG"
    library="dnn_accel_system_inst_reset_bfm" />
- <file
-   path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm_0003.sv"
-   type="SYSTEM_VERILOG"
-   library="dnn_accel_system_inst_pll_locked_bfm" />
  <file
    path="dnn_accel_system/testbench/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm_0002.sv"
    type="SYSTEM_VERILOG"

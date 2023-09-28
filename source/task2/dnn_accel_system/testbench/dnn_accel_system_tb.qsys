@@ -41,14 +41,6 @@
          type = "int";
       }
    }
-   element dnn_accel_system_inst_pll_locked_bfm
-   {
-      datum _sortIndex
-      {
-         value = "5";
-         type = "int";
-      }
-   }
    element dnn_accel_system_inst_reset_bfm
    {
       datum _sortIndex
@@ -61,6 +53,14 @@
    {
       datum _sortIndex
       {
+         value = "5";
+         type = "int";
+      }
+   }
+   element dnn_accel_system_inst_vga_bfm
+   {
+      datum _sortIndex
+      {
          value = "6";
          type = "int";
       }
@@ -70,14 +70,6 @@
       datum _sortIndex
       {
          value = "7";
-         type = "int";
-      }
-   }
-   element sdram_controller_my_partner_clk_bfm
-   {
-      datum _sortIndex
-      {
-         value = "8";
          type = "int";
       }
    }
@@ -147,17 +139,6 @@
   <parameter name="SIGNAL_WIDTHS" value="8" />
  </module>
  <module
-   name="dnn_accel_system_inst_pll_locked_bfm"
-   kind="altera_conduit_bfm"
-   version="19.1"
-   enabled="1">
-  <parameter name="CLOCKED_SIGNAL" value="false" />
-  <parameter name="ENABLE_RESET" value="false" />
-  <parameter name="SIGNAL_DIRECTIONS" value="input" />
-  <parameter name="SIGNAL_ROLES" value="export" />
-  <parameter name="SIGNAL_WIDTHS" value="1" />
- </module>
- <module
    name="dnn_accel_system_inst_reset_bfm"
    kind="altera_avalon_reset_source"
    version="19.1"
@@ -177,6 +158,17 @@
   <parameter name="SIGNAL_WIDTHS" value="8" />
  </module>
  <module
+   name="dnn_accel_system_inst_vga_bfm"
+   kind="altera_conduit_bfm"
+   version="19.1"
+   enabled="1">
+  <parameter name="CLOCKED_SIGNAL" value="true" />
+  <parameter name="ENABLE_RESET" value="true" />
+  <parameter name="SIGNAL_DIRECTIONS">input,input,input,input,input,input</parameter>
+  <parameter name="SIGNAL_ROLES">vga_blu,vga_clk,vga_grn,vga_hsync,vga_red,vga_vsync</parameter>
+  <parameter name="SIGNAL_WIDTHS" value="8,1,8,1,8,1" />
+ </module>
+ <module
    name="sdram_controller_my_partner"
    kind="altera_sdram_partner_module"
    version="11.0"
@@ -191,14 +183,6 @@
   <parameter name="SDRAM_NUM_CHIPSELECTS" value="1" />
   <parameter name="SDRAM_ROW_WIDTH" value="13" />
  </module>
- <module
-   name="sdram_controller_my_partner_clk_bfm"
-   kind="altera_avalon_clock_source"
-   version="19.1"
-   enabled="1">
-  <parameter name="CLOCK_RATE" value="50000000" />
-  <parameter name="CLOCK_UNIT" value="1" />
- </module>
  <connection
    kind="clock"
    version="19.1"
@@ -212,7 +196,12 @@
  <connection
    kind="clock"
    version="19.1"
-   start="sdram_controller_my_partner_clk_bfm.clk"
+   start="dnn_accel_system_inst_clk_bfm.clk"
+   end="dnn_accel_system_inst_vga_bfm.clk" />
+ <connection
+   kind="clock"
+   version="19.1"
+   start="dnn_accel_system_inst_clk_bfm.clk"
    end="sdram_controller_my_partner.clk" />
  <connection
    kind="conduit"
@@ -230,17 +219,6 @@
    version="19.1"
    start="dnn_accel_system_inst_leds_bfm.conduit"
    end="dnn_accel_system_inst.leds">
-  <parameter name="endPort" value="" />
-  <parameter name="endPortLSB" value="0" />
-  <parameter name="startPort" value="" />
-  <parameter name="startPortLSB" value="0" />
-  <parameter name="width" value="0" />
- </connection>
- <connection
-   kind="conduit"
-   version="19.1"
-   start="dnn_accel_system_inst_pll_locked_bfm.conduit"
-   end="dnn_accel_system_inst.pll_locked">
   <parameter name="endPort" value="" />
   <parameter name="endPortLSB" value="0" />
   <parameter name="startPort" value="" />
@@ -270,10 +248,26 @@
   <parameter name="width" value="0" />
  </connection>
  <connection
+   kind="conduit"
+   version="19.1"
+   start="dnn_accel_system_inst_vga_bfm.conduit"
+   end="dnn_accel_system_inst.vga">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
    kind="reset"
    version="19.1"
    start="dnn_accel_system_inst_reset_bfm.reset"
    end="dnn_accel_system_inst.reset" />
+ <connection
+   kind="reset"
+   version="19.1"
+   start="dnn_accel_system_inst_reset_bfm.reset"
+   end="dnn_accel_system_inst_vga_bfm.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

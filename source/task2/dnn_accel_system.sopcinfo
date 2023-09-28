@@ -5,11 +5,11 @@
  version="1.0"
  fabric="QSYS">
  <!-- Format version 19.1 670 (Future versions may contain additional information.) -->
- <!-- 2023.09.15.17:14:28 -->
+ <!-- 2023.09.27.17:04:26 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1694823268</value>
+  <value>1695859466</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -11587,15 +11587,9 @@ parameters are a RESULT of the module parameters. -->
    </port>
    <clockDomainMember>
     <isBridge>false</isBridge>
-    <moduleName>jtag_uart_0</moduleName>
+    <moduleName>nios2_gen2_0</moduleName>
     <slaveName>clk</slaveName>
-    <name>jtag_uart_0.clk</name>
-   </clockDomainMember>
-   <clockDomainMember>
-    <isBridge>false</isBridge>
-    <moduleName>LEDs</moduleName>
-    <slaveName>clk</slaveName>
-    <name>LEDs.clk</name>
+    <name>nios2_gen2_0.clk</name>
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
@@ -11605,9 +11599,15 @@ parameters are a RESULT of the module parameters. -->
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
-    <moduleName>nios2_gen2_0</moduleName>
+    <moduleName>LEDs</moduleName>
     <slaveName>clk</slaveName>
-    <name>nios2_gen2_0.clk</name>
+    <name>LEDs.clk</name>
+   </clockDomainMember>
+   <clockDomainMember>
+    <isBridge>false</isBridge>
+    <moduleName>jtag_uart_0</moduleName>
+    <slaveName>clk</slaveName>
+    <name>jtag_uart_0.clk</name>
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
@@ -14747,11 +14747,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>refclk</endConnectionPoint>
  </connection>
  <connection
-   name="pll_0.outclk0/jtag_uart_0.clk"
+   name="pll_0.outclk0/nios2_gen2_0.clk"
    kind="clock"
    version="19.1"
    start="pll_0.outclk0"
-   end="jtag_uart_0.clk">
+   end="nios2_gen2_0.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -14770,34 +14770,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>pll_0</startModule>
   <startConnectionPoint>outclk0</startConnectionPoint>
-  <endModule>jtag_uart_0</endModule>
-  <endConnectionPoint>clk</endConnectionPoint>
- </connection>
- <connection
-   name="pll_0.outclk0/LEDs.clk"
-   kind="clock"
-   version="19.1"
-   start="pll_0.outclk0"
-   end="LEDs.clk">
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <startModule>pll_0</startModule>
-  <startConnectionPoint>outclk0</startConnectionPoint>
-  <endModule>LEDs</endModule>
+  <endModule>nios2_gen2_0</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
@@ -14828,11 +14801,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="pll_0.outclk0/nios2_gen2_0.clk"
+   name="pll_0.outclk0/LEDs.clk"
    kind="clock"
    version="19.1"
    start="pll_0.outclk0"
-   end="nios2_gen2_0.clk">
+   end="LEDs.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -14851,7 +14824,34 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>pll_0</startModule>
   <startConnectionPoint>outclk0</startConnectionPoint>
-  <endModule>nios2_gen2_0</endModule>
+  <endModule>LEDs</endModule>
+  <endConnectionPoint>clk</endConnectionPoint>
+ </connection>
+ <connection
+   name="pll_0.outclk0/jtag_uart_0.clk"
+   kind="clock"
+   version="19.1"
+   start="pll_0.outclk0"
+   end="jtag_uart_0.clk">
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>pll_0</startModule>
+  <startConnectionPoint>outclk0</startConnectionPoint>
+  <endModule>jtag_uart_0</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection

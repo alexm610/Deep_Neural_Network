@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 19.1 670 win32 2023.09.11.16:29:09
+# ACDS 19.1 670 win32 2023.09.18.09:40:00
 # ----------------------------------------
 # Auto-generated simulation script rivierapro_setup.tcl
 # ----------------------------------------
@@ -186,94 +186,100 @@ ensure_lib                       ./libraries/cyclonev_hssi_ver
 vmap       cyclonev_hssi_ver     ./libraries/cyclonev_hssi_ver    
 ensure_lib                       ./libraries/cyclonev_pcie_hip_ver
 vmap       cyclonev_pcie_hip_ver ./libraries/cyclonev_pcie_hip_ver
-ensure_lib                                              ./libraries/altera_common_sv_packages                   
-vmap       altera_common_sv_packages                    ./libraries/altera_common_sv_packages                   
-ensure_lib                                              ./libraries/error_adapter_0                             
-vmap       error_adapter_0                              ./libraries/error_adapter_0                             
-ensure_lib                                              ./libraries/avalon_st_adapter_005                       
-vmap       avalon_st_adapter_005                        ./libraries/avalon_st_adapter_005                       
-ensure_lib                                              ./libraries/avalon_st_adapter                           
-vmap       avalon_st_adapter                            ./libraries/avalon_st_adapter                           
-ensure_lib                                              ./libraries/sdram_controller_s1_rsp_width_adapter       
-vmap       sdram_controller_s1_rsp_width_adapter        ./libraries/sdram_controller_s1_rsp_width_adapter       
-ensure_lib                                              ./libraries/rsp_mux_001                                 
-vmap       rsp_mux_001                                  ./libraries/rsp_mux_001                                 
-ensure_lib                                              ./libraries/rsp_mux                                     
-vmap       rsp_mux                                      ./libraries/rsp_mux                                     
-ensure_lib                                              ./libraries/rsp_demux_003                               
-vmap       rsp_demux_003                                ./libraries/rsp_demux_003                               
-ensure_lib                                              ./libraries/rsp_demux                                   
-vmap       rsp_demux                                    ./libraries/rsp_demux                                   
-ensure_lib                                              ./libraries/cmd_mux_003                                 
-vmap       cmd_mux_003                                  ./libraries/cmd_mux_003                                 
-ensure_lib                                              ./libraries/cmd_mux                                     
-vmap       cmd_mux                                      ./libraries/cmd_mux                                     
-ensure_lib                                              ./libraries/cmd_demux_001                               
-vmap       cmd_demux_001                                ./libraries/cmd_demux_001                               
-ensure_lib                                              ./libraries/cmd_demux                                   
-vmap       cmd_demux                                    ./libraries/cmd_demux                                   
-ensure_lib                                              ./libraries/sdram_controller_s1_burst_adapter           
-vmap       sdram_controller_s1_burst_adapter            ./libraries/sdram_controller_s1_burst_adapter           
-ensure_lib                                              ./libraries/router_007                                  
-vmap       router_007                                   ./libraries/router_007                                  
-ensure_lib                                              ./libraries/router_005                                  
-vmap       router_005                                   ./libraries/router_005                                  
-ensure_lib                                              ./libraries/router_002                                  
-vmap       router_002                                   ./libraries/router_002                                  
-ensure_lib                                              ./libraries/router_001                                  
-vmap       router_001                                   ./libraries/router_001                                  
-ensure_lib                                              ./libraries/router                                      
-vmap       router                                       ./libraries/router                                      
-ensure_lib                                              ./libraries/jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo
-vmap       jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo ./libraries/jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo
-ensure_lib                                              ./libraries/jtag_uart_0_avalon_jtag_slave_agent         
-vmap       jtag_uart_0_avalon_jtag_slave_agent          ./libraries/jtag_uart_0_avalon_jtag_slave_agent         
-ensure_lib                                              ./libraries/nios2_gen2_0_data_master_agent              
-vmap       nios2_gen2_0_data_master_agent               ./libraries/nios2_gen2_0_data_master_agent              
-ensure_lib                                              ./libraries/jtag_uart_0_avalon_jtag_slave_translator    
-vmap       jtag_uart_0_avalon_jtag_slave_translator     ./libraries/jtag_uart_0_avalon_jtag_slave_translator    
-ensure_lib                                              ./libraries/nios2_gen2_0_data_master_translator         
-vmap       nios2_gen2_0_data_master_translator          ./libraries/nios2_gen2_0_data_master_translator         
-ensure_lib                                              ./libraries/cpu                                         
-vmap       cpu                                          ./libraries/cpu                                         
-ensure_lib                                              ./libraries/rst_controller                              
-vmap       rst_controller                               ./libraries/rst_controller                              
-ensure_lib                                              ./libraries/irq_mapper                                  
-vmap       irq_mapper                                   ./libraries/irq_mapper                                  
-ensure_lib                                              ./libraries/mm_interconnect_0                           
-vmap       mm_interconnect_0                            ./libraries/mm_interconnect_0                           
-ensure_lib                                              ./libraries/switches                                    
-vmap       switches                                     ./libraries/switches                                    
-ensure_lib                                              ./libraries/sdram_controller                            
-vmap       sdram_controller                             ./libraries/sdram_controller                            
-ensure_lib                                              ./libraries/pll_0                                       
-vmap       pll_0                                        ./libraries/pll_0                                       
-ensure_lib                                              ./libraries/onchip_memory2_0                            
-vmap       onchip_memory2_0                             ./libraries/onchip_memory2_0                            
-ensure_lib                                              ./libraries/nios2_gen2_0                                
-vmap       nios2_gen2_0                                 ./libraries/nios2_gen2_0                                
-ensure_lib                                              ./libraries/jtag_uart_0                                 
-vmap       jtag_uart_0                                  ./libraries/jtag_uart_0                                 
-ensure_lib                                              ./libraries/hex0                                        
-vmap       hex0                                         ./libraries/hex0                                        
-ensure_lib                                              ./libraries/LEDs                                        
-vmap       LEDs                                         ./libraries/LEDs                                        
-ensure_lib                                              ./libraries/sdram_controller_my_partner                 
-vmap       sdram_controller_my_partner                  ./libraries/sdram_controller_my_partner                 
-ensure_lib                                              ./libraries/dnn_accel_system_inst_switches_bfm          
-vmap       dnn_accel_system_inst_switches_bfm           ./libraries/dnn_accel_system_inst_switches_bfm          
-ensure_lib                                              ./libraries/dnn_accel_system_inst_reset_bfm             
-vmap       dnn_accel_system_inst_reset_bfm              ./libraries/dnn_accel_system_inst_reset_bfm             
-ensure_lib                                              ./libraries/dnn_accel_system_inst_pll_locked_bfm        
-vmap       dnn_accel_system_inst_pll_locked_bfm         ./libraries/dnn_accel_system_inst_pll_locked_bfm        
-ensure_lib                                              ./libraries/dnn_accel_system_inst_leds_bfm              
-vmap       dnn_accel_system_inst_leds_bfm               ./libraries/dnn_accel_system_inst_leds_bfm              
-ensure_lib                                              ./libraries/dnn_accel_system_inst_hex_bfm               
-vmap       dnn_accel_system_inst_hex_bfm                ./libraries/dnn_accel_system_inst_hex_bfm               
-ensure_lib                                              ./libraries/dnn_accel_system_inst_clk_bfm               
-vmap       dnn_accel_system_inst_clk_bfm                ./libraries/dnn_accel_system_inst_clk_bfm               
-ensure_lib                                              ./libraries/dnn_accel_system_inst                       
-vmap       dnn_accel_system_inst                        ./libraries/dnn_accel_system_inst                       
+ensure_lib                                                 ./libraries/altera_common_sv_packages                      
+vmap       altera_common_sv_packages                       ./libraries/altera_common_sv_packages                      
+ensure_lib                                                 ./libraries/error_adapter_0                                
+vmap       error_adapter_0                                 ./libraries/error_adapter_0                                
+ensure_lib                                                 ./libraries/avalon_st_adapter_001                          
+vmap       avalon_st_adapter_001                           ./libraries/avalon_st_adapter_001                          
+ensure_lib                                                 ./libraries/avalon_st_adapter                              
+vmap       avalon_st_adapter                               ./libraries/avalon_st_adapter                              
+ensure_lib                                                 ./libraries/sdram_controller_s1_rsp_width_adapter          
+vmap       sdram_controller_s1_rsp_width_adapter           ./libraries/sdram_controller_s1_rsp_width_adapter          
+ensure_lib                                                 ./libraries/rsp_mux_002                                    
+vmap       rsp_mux_002                                     ./libraries/rsp_mux_002                                    
+ensure_lib                                                 ./libraries/rsp_mux_001                                    
+vmap       rsp_mux_001                                     ./libraries/rsp_mux_001                                    
+ensure_lib                                                 ./libraries/rsp_mux                                        
+vmap       rsp_mux                                         ./libraries/rsp_mux                                        
+ensure_lib                                                 ./libraries/rsp_demux                                      
+vmap       rsp_demux                                       ./libraries/rsp_demux                                      
+ensure_lib                                                 ./libraries/cmd_mux_002                                    
+vmap       cmd_mux_002                                     ./libraries/cmd_mux_002                                    
+ensure_lib                                                 ./libraries/cmd_mux                                        
+vmap       cmd_mux                                         ./libraries/cmd_mux                                        
+ensure_lib                                                 ./libraries/cmd_demux_002                                  
+vmap       cmd_demux_002                                   ./libraries/cmd_demux_002                                  
+ensure_lib                                                 ./libraries/cmd_demux_001                                  
+vmap       cmd_demux_001                                   ./libraries/cmd_demux_001                                  
+ensure_lib                                                 ./libraries/cmd_demux                                      
+vmap       cmd_demux                                       ./libraries/cmd_demux                                      
+ensure_lib                                                 ./libraries/sdram_controller_s1_burst_adapter              
+vmap       sdram_controller_s1_burst_adapter               ./libraries/sdram_controller_s1_burst_adapter              
+ensure_lib                                                 ./libraries/router_005                                     
+vmap       router_005                                      ./libraries/router_005                                     
+ensure_lib                                                 ./libraries/router_004                                     
+vmap       router_004                                      ./libraries/router_004                                     
+ensure_lib                                                 ./libraries/router_003                                     
+vmap       router_003                                      ./libraries/router_003                                     
+ensure_lib                                                 ./libraries/router_002                                     
+vmap       router_002                                      ./libraries/router_002                                     
+ensure_lib                                                 ./libraries/router_001                                     
+vmap       router_001                                      ./libraries/router_001                                     
+ensure_lib                                                 ./libraries/router                                         
+vmap       router                                          ./libraries/router                                         
+ensure_lib                                                 ./libraries/sdram_controller_s1_agent_rsp_fifo             
+vmap       sdram_controller_s1_agent_rsp_fifo              ./libraries/sdram_controller_s1_agent_rsp_fifo             
+ensure_lib                                                 ./libraries/sdram_controller_s1_agent                      
+vmap       sdram_controller_s1_agent                       ./libraries/sdram_controller_s1_agent                      
+ensure_lib                                                 ./libraries/WordCopy_Accelerator_0_avalon_master_agent     
+vmap       WordCopy_Accelerator_0_avalon_master_agent      ./libraries/WordCopy_Accelerator_0_avalon_master_agent     
+ensure_lib                                                 ./libraries/sdram_controller_s1_translator                 
+vmap       sdram_controller_s1_translator                  ./libraries/sdram_controller_s1_translator                 
+ensure_lib                                                 ./libraries/WordCopy_Accelerator_0_avalon_master_translator
+vmap       WordCopy_Accelerator_0_avalon_master_translator ./libraries/WordCopy_Accelerator_0_avalon_master_translator
+ensure_lib                                                 ./libraries/cpu                                            
+vmap       cpu                                             ./libraries/cpu                                            
+ensure_lib                                                 ./libraries/rst_controller                                 
+vmap       rst_controller                                  ./libraries/rst_controller                                 
+ensure_lib                                                 ./libraries/irq_mapper                                     
+vmap       irq_mapper                                      ./libraries/irq_mapper                                     
+ensure_lib                                                 ./libraries/mm_interconnect_0                              
+vmap       mm_interconnect_0                               ./libraries/mm_interconnect_0                              
+ensure_lib                                                 ./libraries/vga_avalon                                     
+vmap       vga_avalon                                      ./libraries/vga_avalon                                     
+ensure_lib                                                 ./libraries/switches                                       
+vmap       switches                                        ./libraries/switches                                       
+ensure_lib                                                 ./libraries/sdram_controller                               
+vmap       sdram_controller                                ./libraries/sdram_controller                               
+ensure_lib                                                 ./libraries/onchip_memory2_0                               
+vmap       onchip_memory2_0                                ./libraries/onchip_memory2_0                               
+ensure_lib                                                 ./libraries/nios2_gen2_0                                   
+vmap       nios2_gen2_0                                    ./libraries/nios2_gen2_0                                   
+ensure_lib                                                 ./libraries/jtag_uart_0                                    
+vmap       jtag_uart_0                                     ./libraries/jtag_uart_0                                    
+ensure_lib                                                 ./libraries/hex0                                           
+vmap       hex0                                            ./libraries/hex0                                           
+ensure_lib                                                 ./libraries/WordCopy_Accelerator_0                         
+vmap       WordCopy_Accelerator_0                          ./libraries/WordCopy_Accelerator_0                         
+ensure_lib                                                 ./libraries/LEDs                                           
+vmap       LEDs                                            ./libraries/LEDs                                           
+ensure_lib                                                 ./libraries/sdram_controller_my_partner                    
+vmap       sdram_controller_my_partner                     ./libraries/sdram_controller_my_partner                    
+ensure_lib                                                 ./libraries/dnn_accel_system_inst_vga_bfm                  
+vmap       dnn_accel_system_inst_vga_bfm                   ./libraries/dnn_accel_system_inst_vga_bfm                  
+ensure_lib                                                 ./libraries/dnn_accel_system_inst_switches_bfm             
+vmap       dnn_accel_system_inst_switches_bfm              ./libraries/dnn_accel_system_inst_switches_bfm             
+ensure_lib                                                 ./libraries/dnn_accel_system_inst_reset_bfm                
+vmap       dnn_accel_system_inst_reset_bfm                 ./libraries/dnn_accel_system_inst_reset_bfm                
+ensure_lib                                                 ./libraries/dnn_accel_system_inst_leds_bfm                 
+vmap       dnn_accel_system_inst_leds_bfm                  ./libraries/dnn_accel_system_inst_leds_bfm                 
+ensure_lib                                                 ./libraries/dnn_accel_system_inst_hex_bfm                  
+vmap       dnn_accel_system_inst_hex_bfm                   ./libraries/dnn_accel_system_inst_hex_bfm                  
+ensure_lib                                                 ./libraries/dnn_accel_system_inst_clk_bfm                  
+vmap       dnn_accel_system_inst_clk_bfm                   ./libraries/dnn_accel_system_inst_clk_bfm                  
+ensure_lib                                                 ./libraries/dnn_accel_system_inst                          
+vmap       dnn_accel_system_inst                           ./libraries/dnn_accel_system_inst                          
 
 # ----------------------------------------
 # Compile device library files
@@ -297,88 +303,96 @@ alias dev_com {
 # Compile the design files in correct order
 alias com {
   echo "\[exec\] com"
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/verbosity_pkg.sv"                                                                                         -work altera_common_sv_packages                   
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_005_error_adapter_0.sv" -l altera_common_sv_packages -work error_adapter_0                             
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv"     -l altera_common_sv_packages -work error_adapter_0                             
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_005.v"                                               -work avalon_st_adapter_005                       
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter.v"                                                   -work avalon_st_adapter                           
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_width_adapter.sv"                                              -l altera_common_sv_packages -work sdram_controller_s1_rsp_width_adapter       
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_address_alignment.sv"                                          -l altera_common_sv_packages -work sdram_controller_s1_rsp_width_adapter       
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_uncompressor.sv"                                         -l altera_common_sv_packages -work sdram_controller_s1_rsp_width_adapter       
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_mux_001.sv"                           -l altera_common_sv_packages -work rsp_mux_001                                 
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                                 -l altera_common_sv_packages -work rsp_mux_001                                 
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_mux.sv"                               -l altera_common_sv_packages -work rsp_mux                                     
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                                 -l altera_common_sv_packages -work rsp_mux                                     
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_demux_003.sv"                         -l altera_common_sv_packages -work rsp_demux_003                               
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_demux.sv"                             -l altera_common_sv_packages -work rsp_demux                                   
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_mux_003.sv"                           -l altera_common_sv_packages -work cmd_mux_003                                 
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                                 -l altera_common_sv_packages -work cmd_mux_003                                 
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_mux.sv"                               -l altera_common_sv_packages -work cmd_mux                                     
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                                 -l altera_common_sv_packages -work cmd_mux                                     
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_demux_001.sv"                         -l altera_common_sv_packages -work cmd_demux_001                               
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_demux.sv"                             -l altera_common_sv_packages -work cmd_demux                                   
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter.sv"                                              -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter           
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter_uncmpr.sv"                                       -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter           
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter_13_1.sv"                                         -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter           
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter_new.sv"                                          -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter           
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_incr_burst_converter.sv"                                              -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter           
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_wrap_burst_converter.sv"                                              -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter           
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_default_burst_converter.sv"                                           -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter           
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_address_alignment.sv"                                          -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter           
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_st_pipeline_stage.sv"                                          -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter           
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_st_pipeline_base.v"                                            -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter           
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_007.sv"                            -l altera_common_sv_packages -work router_007                                  
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_005.sv"                            -l altera_common_sv_packages -work router_005                                  
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_002.sv"                            -l altera_common_sv_packages -work router_002                                  
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_001.sv"                            -l altera_common_sv_packages -work router_001                                  
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router.sv"                                -l altera_common_sv_packages -work router                                      
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_sc_fifo.v"                                                                                  -work jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_slave_agent.sv"                                                -l altera_common_sv_packages -work jtag_uart_0_avalon_jtag_slave_agent         
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_uncompressor.sv"                                         -l altera_common_sv_packages -work jtag_uart_0_avalon_jtag_slave_agent         
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_master_agent.sv"                                               -l altera_common_sv_packages -work nios2_gen2_0_data_master_agent              
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_slave_translator.sv"                                           -l altera_common_sv_packages -work jtag_uart_0_avalon_jtag_slave_translator    
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_master_translator.sv"                                          -l altera_common_sv_packages -work nios2_gen2_0_data_master_translator         
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_nios2_gen2_0_cpu.v"                                                                      -work cpu                                         
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_nios2_gen2_0_cpu_debug_slave_sysclk.v"                                                   -work cpu                                         
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_nios2_gen2_0_cpu_debug_slave_tck.v"                                                      -work cpu                                         
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_nios2_gen2_0_cpu_debug_slave_wrapper.v"                                                  -work cpu                                         
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_nios2_gen2_0_cpu_test_bench.v"                                                           -work cpu                                         
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_reset_controller.v"                                                                                -work rst_controller                              
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_reset_synchronizer.v"                                                                              -work rst_controller                              
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_irq_mapper.sv"                                              -l altera_common_sv_packages -work irq_mapper                                  
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0.v"                                                                     -work mm_interconnect_0                           
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_switches.v"                                                                              -work switches                                    
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_sdram_controller.v"                                                                      -work sdram_controller                            
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_sdram_controller_test_component.v"                                                       -work sdram_controller                            
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_pll_0.vo"                                                                                -work pll_0                                       
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_onchip_memory2_0.v"                                                                      -work onchip_memory2_0                            
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_nios2_gen2_0.v"                                                                          -work nios2_gen2_0                                
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_jtag_uart_0.v"                                                                           -work jtag_uart_0                                 
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_hex0.v"                                                                                  -work hex0                                        
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_LEDs.v"                                                                                  -work LEDs                                        
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_sdram_partner_module.v"                                                                            -work sdram_controller_my_partner                 
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm_0004.sv"                                                  -l altera_common_sv_packages -work dnn_accel_system_inst_switches_bfm          
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_reset_source.sv"                                               -l altera_common_sv_packages -work dnn_accel_system_inst_reset_bfm             
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm_0003.sv"                                                  -l altera_common_sv_packages -work dnn_accel_system_inst_pll_locked_bfm        
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm_0002.sv"                                                  -l altera_common_sv_packages -work dnn_accel_system_inst_leds_bfm              
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm.sv"                                                       -l altera_common_sv_packages -work dnn_accel_system_inst_hex_bfm               
-  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_clock_source.sv"                                               -l altera_common_sv_packages -work dnn_accel_system_inst_clk_bfm               
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system.v"                                                                                       -work dnn_accel_system_inst                       
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/dnn_accel_system_tb.v"                                                                                                                                                 
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/verbosity_pkg.sv"                                                                                         -work altera_common_sv_packages                      
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_001_error_adapter_0.sv" -l altera_common_sv_packages -work error_adapter_0                                
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv"     -l altera_common_sv_packages -work error_adapter_0                                
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter_001.v"                                               -work avalon_st_adapter_001                          
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_avalon_st_adapter.v"                                                   -work avalon_st_adapter                              
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_width_adapter.sv"                                              -l altera_common_sv_packages -work sdram_controller_s1_rsp_width_adapter          
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_address_alignment.sv"                                          -l altera_common_sv_packages -work sdram_controller_s1_rsp_width_adapter          
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_uncompressor.sv"                                         -l altera_common_sv_packages -work sdram_controller_s1_rsp_width_adapter          
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_mux_002.sv"                           -l altera_common_sv_packages -work rsp_mux_002                                    
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                                 -l altera_common_sv_packages -work rsp_mux_002                                    
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_mux_001.sv"                           -l altera_common_sv_packages -work rsp_mux_001                                    
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                                 -l altera_common_sv_packages -work rsp_mux_001                                    
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_mux.sv"                               -l altera_common_sv_packages -work rsp_mux                                        
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                                 -l altera_common_sv_packages -work rsp_mux                                        
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_rsp_demux.sv"                             -l altera_common_sv_packages -work rsp_demux                                      
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_mux_002.sv"                           -l altera_common_sv_packages -work cmd_mux_002                                    
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                                 -l altera_common_sv_packages -work cmd_mux_002                                    
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_mux.sv"                               -l altera_common_sv_packages -work cmd_mux                                        
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                                 -l altera_common_sv_packages -work cmd_mux                                        
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_demux_002.sv"                         -l altera_common_sv_packages -work cmd_demux_002                                  
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_demux_001.sv"                         -l altera_common_sv_packages -work cmd_demux_001                                  
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_cmd_demux.sv"                             -l altera_common_sv_packages -work cmd_demux                                      
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter.sv"                                              -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter              
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter_uncmpr.sv"                                       -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter              
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter_13_1.sv"                                         -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter              
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_adapter_new.sv"                                          -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter              
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_incr_burst_converter.sv"                                              -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter              
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_wrap_burst_converter.sv"                                              -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter              
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_default_burst_converter.sv"                                           -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter              
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_address_alignment.sv"                                          -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter              
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_st_pipeline_stage.sv"                                          -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter              
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_st_pipeline_base.v"                                            -l altera_common_sv_packages -work sdram_controller_s1_burst_adapter              
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_005.sv"                            -l altera_common_sv_packages -work router_005                                     
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_004.sv"                            -l altera_common_sv_packages -work router_004                                     
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_003.sv"                            -l altera_common_sv_packages -work router_003                                     
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_002.sv"                            -l altera_common_sv_packages -work router_002                                     
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router_001.sv"                            -l altera_common_sv_packages -work router_001                                     
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0_router.sv"                                -l altera_common_sv_packages -work router                                         
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_sc_fifo.v"                                                                                  -work sdram_controller_s1_agent_rsp_fifo             
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_slave_agent.sv"                                                -l altera_common_sv_packages -work sdram_controller_s1_agent                      
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_burst_uncompressor.sv"                                         -l altera_common_sv_packages -work sdram_controller_s1_agent                      
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_master_agent.sv"                                               -l altera_common_sv_packages -work WordCopy_Accelerator_0_avalon_master_agent     
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_slave_translator.sv"                                           -l altera_common_sv_packages -work sdram_controller_s1_translator                 
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_merlin_master_translator.sv"                                          -l altera_common_sv_packages -work WordCopy_Accelerator_0_avalon_master_translator
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_nios2_gen2_0_cpu.v"                                                                      -work cpu                                            
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_nios2_gen2_0_cpu_debug_slave_sysclk.v"                                                   -work cpu                                            
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_nios2_gen2_0_cpu_debug_slave_tck.v"                                                      -work cpu                                            
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_nios2_gen2_0_cpu_debug_slave_wrapper.v"                                                  -work cpu                                            
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_nios2_gen2_0_cpu_test_bench.v"                                                           -work cpu                                            
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_reset_controller.v"                                                                                -work rst_controller                                 
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_reset_synchronizer.v"                                                                              -work rst_controller                                 
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_irq_mapper.sv"                                              -l altera_common_sv_packages -work irq_mapper                                     
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_mm_interconnect_0.v"                                                                     -work mm_interconnect_0                              
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/vga_avalon.sv"                                                               -l altera_common_sv_packages -work vga_avalon                                     
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/vga_adapter.sv"                                                              -l altera_common_sv_packages -work vga_avalon                                     
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/vga_address_translator.sv"                                                   -l altera_common_sv_packages -work vga_avalon                                     
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/vga_controller.sv"                                                           -l altera_common_sv_packages -work vga_avalon                                     
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/vga_pll.sv"                                                                  -l altera_common_sv_packages -work vga_avalon                                     
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_switches.v"                                                                              -work switches                                       
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_sdram_controller.v"                                                                      -work sdram_controller                               
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_sdram_controller_test_component.v"                                                       -work sdram_controller                               
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_onchip_memory2_0.v"                                                                      -work onchip_memory2_0                               
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_nios2_gen2_0.v"                                                                          -work nios2_gen2_0                                   
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_jtag_uart_0.v"                                                                           -work jtag_uart_0                                    
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_hex0.v"                                                                                  -work hex0                                           
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/wordcopy.sv"                                                                 -l altera_common_sv_packages -work WordCopy_Accelerator_0                         
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system_LEDs.v"                                                                                  -work LEDs                                           
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_sdram_partner_module.v"                                                                            -work sdram_controller_my_partner                    
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm_0004.sv"                                                  -l altera_common_sv_packages -work dnn_accel_system_inst_vga_bfm                  
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm_0003.sv"                                                  -l altera_common_sv_packages -work dnn_accel_system_inst_switches_bfm             
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_reset_source.sv"                                               -l altera_common_sv_packages -work dnn_accel_system_inst_reset_bfm                
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm_0002.sv"                                                  -l altera_common_sv_packages -work dnn_accel_system_inst_leds_bfm                 
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_conduit_bfm.sv"                                                       -l altera_common_sv_packages -work dnn_accel_system_inst_hex_bfm                  
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/altera_avalon_clock_source.sv"                                               -l altera_common_sv_packages -work dnn_accel_system_inst_clk_bfm                  
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/submodules/dnn_accel_system.v"                                                                                       -work dnn_accel_system_inst                          
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/dnn_accel_system_tb/simulation/dnn_accel_system_tb.v"                                                                                                                                                    
 }
 
 # ----------------------------------------
 # Elaborate top level design
 alias elab {
   echo "\[exec\] elab"
-  eval vsim +access +r -t ps $ELAB_OPTIONS -L work -L altera_common_sv_packages -L error_adapter_0 -L avalon_st_adapter_005 -L avalon_st_adapter -L sdram_controller_s1_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_003 -L rsp_demux -L cmd_mux_003 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L sdram_controller_s1_burst_adapter -L router_007 -L router_005 -L router_002 -L router_001 -L router -L jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo -L jtag_uart_0_avalon_jtag_slave_agent -L nios2_gen2_0_data_master_agent -L jtag_uart_0_avalon_jtag_slave_translator -L nios2_gen2_0_data_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L switches -L sdram_controller -L pll_0 -L onchip_memory2_0 -L nios2_gen2_0 -L jtag_uart_0 -L hex0 -L LEDs -L sdram_controller_my_partner -L dnn_accel_system_inst_switches_bfm -L dnn_accel_system_inst_reset_bfm -L dnn_accel_system_inst_pll_locked_bfm -L dnn_accel_system_inst_leds_bfm -L dnn_accel_system_inst_hex_bfm -L dnn_accel_system_inst_clk_bfm -L dnn_accel_system_inst -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver $TOP_LEVEL_NAME
+  eval vsim +access +r -t ps $ELAB_OPTIONS -L work -L altera_common_sv_packages -L error_adapter_0 -L avalon_st_adapter_001 -L avalon_st_adapter -L sdram_controller_s1_rsp_width_adapter -L rsp_mux_002 -L rsp_mux_001 -L rsp_mux -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_002 -L cmd_demux_001 -L cmd_demux -L sdram_controller_s1_burst_adapter -L router_005 -L router_004 -L router_003 -L router_002 -L router_001 -L router -L sdram_controller_s1_agent_rsp_fifo -L sdram_controller_s1_agent -L WordCopy_Accelerator_0_avalon_master_agent -L sdram_controller_s1_translator -L WordCopy_Accelerator_0_avalon_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L vga_avalon -L switches -L sdram_controller -L onchip_memory2_0 -L nios2_gen2_0 -L jtag_uart_0 -L hex0 -L WordCopy_Accelerator_0 -L LEDs -L sdram_controller_my_partner -L dnn_accel_system_inst_vga_bfm -L dnn_accel_system_inst_switches_bfm -L dnn_accel_system_inst_reset_bfm -L dnn_accel_system_inst_leds_bfm -L dnn_accel_system_inst_hex_bfm -L dnn_accel_system_inst_clk_bfm -L dnn_accel_system_inst -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver $TOP_LEVEL_NAME
 }
 
 # ----------------------------------------
 # Elaborate the top level design with -dbg -O2 option
 alias elab_debug {
   echo "\[exec\] elab_debug"
-  eval vsim -dbg -O2 +access +r -t ps $ELAB_OPTIONS -L work -L altera_common_sv_packages -L error_adapter_0 -L avalon_st_adapter_005 -L avalon_st_adapter -L sdram_controller_s1_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_003 -L rsp_demux -L cmd_mux_003 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L sdram_controller_s1_burst_adapter -L router_007 -L router_005 -L router_002 -L router_001 -L router -L jtag_uart_0_avalon_jtag_slave_agent_rsp_fifo -L jtag_uart_0_avalon_jtag_slave_agent -L nios2_gen2_0_data_master_agent -L jtag_uart_0_avalon_jtag_slave_translator -L nios2_gen2_0_data_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L switches -L sdram_controller -L pll_0 -L onchip_memory2_0 -L nios2_gen2_0 -L jtag_uart_0 -L hex0 -L LEDs -L sdram_controller_my_partner -L dnn_accel_system_inst_switches_bfm -L dnn_accel_system_inst_reset_bfm -L dnn_accel_system_inst_pll_locked_bfm -L dnn_accel_system_inst_leds_bfm -L dnn_accel_system_inst_hex_bfm -L dnn_accel_system_inst_clk_bfm -L dnn_accel_system_inst -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver $TOP_LEVEL_NAME
+  eval vsim -dbg -O2 +access +r -t ps $ELAB_OPTIONS -L work -L altera_common_sv_packages -L error_adapter_0 -L avalon_st_adapter_001 -L avalon_st_adapter -L sdram_controller_s1_rsp_width_adapter -L rsp_mux_002 -L rsp_mux_001 -L rsp_mux -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_002 -L cmd_demux_001 -L cmd_demux -L sdram_controller_s1_burst_adapter -L router_005 -L router_004 -L router_003 -L router_002 -L router_001 -L router -L sdram_controller_s1_agent_rsp_fifo -L sdram_controller_s1_agent -L WordCopy_Accelerator_0_avalon_master_agent -L sdram_controller_s1_translator -L WordCopy_Accelerator_0_avalon_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L vga_avalon -L switches -L sdram_controller -L onchip_memory2_0 -L nios2_gen2_0 -L jtag_uart_0 -L hex0 -L WordCopy_Accelerator_0 -L LEDs -L sdram_controller_my_partner -L dnn_accel_system_inst_vga_bfm -L dnn_accel_system_inst_switches_bfm -L dnn_accel_system_inst_reset_bfm -L dnn_accel_system_inst_leds_bfm -L dnn_accel_system_inst_hex_bfm -L dnn_accel_system_inst_clk_bfm -L dnn_accel_system_inst -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver $TOP_LEVEL_NAME
 }
 
 # ----------------------------------------
