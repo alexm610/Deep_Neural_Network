@@ -1,12 +1,12 @@
-# system info dnn_accel_system_tb on 2023.09.18.09:39:58
+# system info dnn_accel_system_tb on 2023.09.27.18:31:49
 system_info:
 name,value
 DEVICE,5CSEMA5F31C6
 DEVICE_FAMILY,Cyclone V
-GENERATION_ID,1695055162
+GENERATION_ID,1695864677
 #
 #
-# Files generated for dnn_accel_system_tb on 2023.09.18.09:39:58
+# Files generated for dnn_accel_system_tb on 2023.09.27.18:31:49
 files:
 filepath,kind,attributes,module,is_top
 dnn_accel_system/testbench/dnn_accel_system_tb/simulation/dnn_accel_system_tb.v,VERILOG,,dnn_accel_system_tb,true

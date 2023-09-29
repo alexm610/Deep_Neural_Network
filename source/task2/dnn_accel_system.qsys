@@ -54,6 +54,14 @@
          type = "int";
       }
    }
+   element dnn_accel_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
    element hex0
    {
       datum _sortIndex
@@ -231,19 +239,20 @@
    internal="hex0.external_connection"
    type="conduit"
    dir="end" />
+ <interface name="hex_output" internal="WordCopy_Accelerator_0.hex_output" />
  <interface
    name="leds"
    internal="LEDs.external_connection"
    type="conduit"
    dir="end" />
- <interface name="pll_locked" internal="pll_0.locked" type="conduit" dir="end" />
+ <interface name="pll_locked" internal="pll_0.locked" />
  <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
  <interface
    name="sdram"
    internal="sdram_controller.wire"
    type="conduit"
    dir="end" />
- <interface name="sdram_clk" internal="pll_0.outclk1" type="clock" dir="start" />
+ <interface name="sdram_clk" internal="pll_0.outclk1" />
  <interface
    name="switches"
    internal="switches.external_connection"
@@ -317,8 +326,8 @@
    kind="altera_nios2_gen2"
    version="19.1"
    enabled="1">
-  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="5" />
-  <parameter name="AUTO_CLK_RESET_DOMAIN" value="5" />
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="1" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="1" />
   <parameter name="AUTO_DEVICE" value="5CSEMA5F31C6" />
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="6" />
   <parameter name="bht_ramBlockType" value="Automatic" />
@@ -526,7 +535,7 @@
   <parameter name="useShallowMemBlocks" value="false" />
   <parameter name="writable" value="true" />
  </module>
- <module name="pll_0" kind="altera_pll" version="19.1" enabled="1">
+ <module name="pll_0" kind="altera_pll" version="19.1" enabled="0">
   <parameter name="debug_print_output" value="false" />
   <parameter name="debug_use_rbc_taf_method" value="false" />
   <parameter name="device" value="5CSEMA5F31C6" />
@@ -890,40 +899,32 @@
   <parameter name="baseAddress" value="0x8000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
- <connection kind="clock" version="19.1" start="clk_0.clk" end="pll_0.refclk" />
+ <connection kind="clock" version="19.1" start="clk_0.clk" end="nios2_gen2_0.clk" />
+ <connection kind="clock" version="19.1" start="clk_0.clk" end="switches.clk" />
+ <connection kind="clock" version="19.1" start="clk_0.clk" end="LEDs.clk" />
+ <connection kind="clock" version="19.1" start="clk_0.clk" end="jtag_uart_0.clk" />
  <connection
    kind="clock"
    version="19.1"
-   start="pll_0.outclk0"
-   end="nios2_gen2_0.clk" />
- <connection kind="clock" version="19.1" start="pll_0.outclk0" end="switches.clk" />
- <connection kind="clock" version="19.1" start="pll_0.outclk0" end="LEDs.clk" />
- <connection
-   kind="clock"
-   version="19.1"
-   start="pll_0.outclk0"
-   end="jtag_uart_0.clk" />
- <connection
-   kind="clock"
-   version="19.1"
-   start="pll_0.outclk0"
+   start="clk_0.clk"
    end="sdram_controller.clk" />
- <connection kind="clock" version="19.1" start="pll_0.outclk0" end="hex0.clk" />
+ <connection kind="clock" version="19.1" start="clk_0.clk" end="hex0.clk" />
  <connection
    kind="clock"
    version="19.1"
-   start="pll_0.outclk0"
+   start="clk_0.clk"
    end="onchip_memory2_0.clk1" />
  <connection
    kind="clock"
    version="19.1"
-   start="pll_0.outclk0"
+   start="clk_0.clk"
    end="vga_avalon.clock_sink" />
  <connection
    kind="clock"
    version="19.1"
-   start="pll_0.outclk0"
+   start="clk_0.clk"
    end="WordCopy_Accelerator_0.clock_sink" />
+ <connection kind="clock" version="19.1" start="clk_0.clk" end="pll_0.refclk" />
  <connection
    kind="interrupt"
    version="19.1"

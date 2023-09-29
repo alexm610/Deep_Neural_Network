@@ -12,7 +12,7 @@ module task0 (input logic CLOCK_50, input logic [3:0] KEY, // KEY[3] is async ac
     assign HEX2 = 7'b1111111;
     assign HEX3 = 7'b1111111;
     assign HEX4 = 7'b1111111;
-    assign HEX5 = 7'b1111111;
+    //assign HEX5 = 7'b1111111;
     dnn_accel_system sys (.clk_clk(CLOCK_50), 
         .reset_reset_n(KEY[3]),
         .pll_locked_export(LEDR[9]),
@@ -34,5 +34,6 @@ module task0 (input logic CLOCK_50, input logic [3:0] KEY, // KEY[3] is async ac
         .sdram_we_n(DRAM_WE_N),
         .hex_export(HEX0),
         .leds_export(LEDR[7:0]),
-        .switches_export(SW[7:0]));
+        .switches_export(SW[7:0]),
+        .hex_output_readdata(HEX5));
 endmodule: task0

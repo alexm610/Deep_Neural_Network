@@ -1,10 +1,16 @@
 main:
-    movia r3, 0x00001010
-    movia r4, 0x08000000
-    movui r2, 0x00
-    stw r2, 0(r3)
+    addi r3, zero, 0x4
+    addi r2, zero, 0x8000
+    addi r1, zero, 0x89C0
+    addi r7, zero, 0x1040
+
+    stwio r1, 4(r7)
+    stwio r2, 8(r7)
+    stwio r3, 12(r7)
+    stwio zero, 0(r7)
+    ldw r4, 0(r7)
+    ldwio r4, 0(r4)
 loop:
-    addi r4, r4, 1
-    ldbio r5, 0(r4)
-    stw r5, 0(r3)
     beq zero, zero, loop
+
+

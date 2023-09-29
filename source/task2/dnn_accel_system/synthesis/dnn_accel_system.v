@@ -4,28 +4,29 @@
 
 `timescale 1 ps / 1 ps
 module dnn_accel_system (
-		input  wire        clk_clk,           //        clk.clk
-		output wire [6:0]  hex_export,        //        hex.export
-		output wire [7:0]  leds_export,       //       leds.export
-		output wire        pll_locked_export, // pll_locked.export
-		input  wire        reset_reset_n,     //      reset.reset_n
-		output wire [12:0] sdram_addr,        //      sdram.addr
-		output wire [1:0]  sdram_ba,          //           .ba
-		output wire        sdram_cas_n,       //           .cas_n
-		output wire        sdram_cke,         //           .cke
-		output wire        sdram_cs_n,        //           .cs_n
-		inout  wire [15:0] sdram_dq,          //           .dq
-		output wire [1:0]  sdram_dqm,         //           .dqm
-		output wire        sdram_ras_n,       //           .ras_n
-		output wire        sdram_we_n,        //           .we_n
-		output wire        sdram_clk_clk,     //  sdram_clk.clk
-		input  wire [7:0]  switches_export,   //   switches.export
-		output wire [7:0]  vga_vga_blu,       //        vga.vga_blu
-		output wire        vga_vga_clk,       //           .vga_clk
-		output wire [7:0]  vga_vga_grn,       //           .vga_grn
-		output wire        vga_vga_hsync,     //           .vga_hsync
-		output wire [7:0]  vga_vga_red,       //           .vga_red
-		output wire        vga_vga_vsync      //           .vga_vsync
+		input  wire        clk_clk,             //        clk.clk
+		output wire [6:0]  hex_export,          //        hex.export
+		output wire [6:0]  hex_output_readdata, // hex_output.readdata
+		output wire [7:0]  leds_export,         //       leds.export
+		output wire        pll_locked_export,   // pll_locked.export
+		input  wire        reset_reset_n,       //      reset.reset_n
+		output wire [12:0] sdram_addr,          //      sdram.addr
+		output wire [1:0]  sdram_ba,            //           .ba
+		output wire        sdram_cas_n,         //           .cas_n
+		output wire        sdram_cke,           //           .cke
+		output wire        sdram_cs_n,          //           .cs_n
+		inout  wire [15:0] sdram_dq,            //           .dq
+		output wire [1:0]  sdram_dqm,           //           .dqm
+		output wire        sdram_ras_n,         //           .ras_n
+		output wire        sdram_we_n,          //           .we_n
+		output wire        sdram_clk_clk,       //  sdram_clk.clk
+		input  wire [7:0]  switches_export,     //   switches.export
+		output wire [7:0]  vga_vga_blu,         //        vga.vga_blu
+		output wire        vga_vga_clk,         //           .vga_clk
+		output wire [7:0]  vga_vga_grn,         //           .vga_grn
+		output wire        vga_vga_hsync,       //           .vga_hsync
+		output wire [7:0]  vga_vga_red,         //           .vga_red
+		output wire        vga_vga_vsync        //           .vga_vsync
 	);
 
 	wire         pll_0_outclk0_clk;                                                   // pll_0:outclk_0 -> [LEDs:clk, WordCopy_Accelerator_0:clk, hex0:clk, irq_mapper:clk, jtag_uart_0:clk, mm_interconnect_0:pll_0_outclk0_clk, nios2_gen2_0:clk, onchip_memory2_0:clk, rst_controller:clk, sdram_controller:clk, switches:clk, vga_avalon:clk]
@@ -134,7 +135,8 @@ module dnn_accel_system (
 		.master_readdatavalid (wordcopy_accelerator_0_avalon_master_readdatavalid),                  //               .readdatavalid
 		.master_waitrequest   (wordcopy_accelerator_0_avalon_master_waitrequest),                    //               .waitrequest
 		.master_write         (wordcopy_accelerator_0_avalon_master_write),                          //               .write
-		.master_writedata     (wordcopy_accelerator_0_avalon_master_writedata)                       //               .writedata
+		.master_writedata     (wordcopy_accelerator_0_avalon_master_writedata),                      //               .writedata
+		.hex_output           (hex_output_readdata)                                                  //     hex_output.readdata
 	);
 
 	dnn_accel_system_hex0 hex0 (

@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 19.1 670 win32 2023.09.18.09:40:00
+# ACDS 19.1 670 win32 2023.09.27.18:31:50
 
 # ----------------------------------------
 # vcs - auto-generated simulation script
@@ -94,7 +94,7 @@
 # within the Quartus project, and generate a unified
 # script which supports all the Altera IP within the design.
 # ----------------------------------------
-# ACDS 19.1 670 win32 2023.09.18.09:40:00
+# ACDS 19.1 670 win32 2023.09.27.18:31:50
 # ----------------------------------------
 # initialize variables
 TOP_LEVEL_NAME="dnn_accel_system_tb"
