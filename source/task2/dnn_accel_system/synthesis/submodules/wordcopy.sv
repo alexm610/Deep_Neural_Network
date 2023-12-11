@@ -8,9 +8,7 @@ module wordcopy (input logic clk, input logic rst_n,
                 input logic master_waitrequest,
                 output logic [31:0] master_address,
                 output logic master_read, input logic [31:0] master_readdata, input logic master_readdatavalid,
-                output logic master_write, output logic [31:0] master_writedata,
-                // export signal to HEX
-                output logic [6:0] hex_output);
+                output logic master_write, output logic [31:0] master_writedata);
                 // export signal to HEX, so I know what is happening within the module during operation
                 
 
@@ -19,8 +17,7 @@ module wordcopy (input logic clk, input logic rst_n,
     int i = 6;
     enum {IDLE, COPY_SOURCE_DATA, WAIT_SOURCE_DATAVALID, PASTE_SOURCE_DATA, CHECK_WORDS_LEFT, DONE} state;
 
-    binary_to_hex B_H   (.BINARY(hex_output_wire), 
-                        .HEX(hex_output));
+
 
     always @(posedge clk) begin
         if (!rst_n) begin
@@ -50,7 +47,6 @@ module wordcopy (input logic clk, input logic rst_n,
                 master_read         <= 1'd0;
                 master_write        <= 1'd0;
                 master_writedata    <= 32'd0;
-                hex_output_wire     <= 5'h0;
             end
             COPY_SOURCE_DATA: begin
                 // slave is working now, so assert waitrequest to the CPU
@@ -65,7 +61,6 @@ module wordcopy (input logic clk, input logic rst_n,
                 master_read         <= ({master_waitrequest} == {1'b0}) ? 1'b0 : 1'b1; // keep master_read high when waiting for SDRAM to make itself available, when it is ready, we are no longer reading from it and we can switch it off
                 master_write        <= ({master_waitrequest} == {1'b0}) ? 1'b1 : 1'b0; // only set master_write when we have successfully copied the data from source, we can then proceed to pasting
                 master_writedata    <= master_readdata;//({master_waitrequest} == {1'b0}) ? master_readdata : 32'd5; // keep the data bus TO BE WRITTEN to memory zeroed-out, then set it to the data read from memory's source location
-                hex_output_wire     <= master_readdata[4:0];
             end
             PASTE_SOURCE_DATA: begin
                 master_address      <= destination; //({master_waitrequest} == {1'b0}) ? destination : master_address; // wait for copy data to be valid, then update the master_address to the destination address

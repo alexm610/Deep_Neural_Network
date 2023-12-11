@@ -1,33 +1,29 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst dnn_accel_system.jtag_uart_0 -pg 1 -lvl 2 -y 150
+preplace inst dnn_accel_system.jtag_uart_0 -pg 1 -lvl 2 -y 130
 preplace inst dnn_accel_system.nios2_gen2_0.cpu -pg 1
 preplace inst dnn_accel_system.WordCopy_Accelerator_0 -pg 1 -lvl 3 -y 610
-preplace inst dnn_accel_system.LEDs -pg 1 -lvl 2 -y 250
-preplace inst dnn_accel_system.pll_0 -pg 1 -lvl 2 -y 670
+preplace inst dnn_accel_system.LEDs -pg 1 -lvl 2 -y 230
 preplace inst dnn_accel_system.nios2_gen2_0.reset_bridge -pg 1
 preplace inst dnn_accel_system -pg 1 -lvl 1 -y 40 -regy -20
 preplace inst dnn_accel_system.nios2_gen2_0 -pg 1 -lvl 1 -y 100
-preplace inst dnn_accel_system.sdram_controller -pg 1 -lvl 2 -y 430
+preplace inst dnn_accel_system.sdram_controller -pg 1 -lvl 2 -y 410
 preplace inst dnn_accel_system.vga_avalon -pg 1 -lvl 3 -y 750
-preplace inst dnn_accel_system.switches -pg 1 -lvl 2 -y 550
-preplace inst dnn_accel_system.onchip_memory2_0 -pg 1 -lvl 2 -y 350
+preplace inst dnn_accel_system.switches -pg 1 -lvl 2 -y 570
+preplace inst dnn_accel_system.onchip_memory2_0 -pg 1 -lvl 2 -y 330
 preplace inst dnn_accel_system.hex0 -pg 1 -lvl 2 -y 30
 preplace inst dnn_accel_system.clk_0 -pg 1 -lvl 1 -y 690
 preplace inst dnn_accel_system.nios2_gen2_0.clock_bridge -pg 1
-preplace netloc EXPORT<net_container>dnn_accel_system</net_container>(MASTER)dnn_accel_system.sdram_clk,(MASTER)pll_0.outclk1) 1 2 2 NJ 860 NJ
-preplace netloc EXPORT<net_container>dnn_accel_system</net_container>(SLAVE)dnn_accel_system.pll_locked,(SLAVE)pll_0.locked) 1 0 2 NJ 760 NJ
-preplace netloc EXPORT<net_container>dnn_accel_system</net_container>(SLAVE)dnn_accel_system.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
-preplace netloc EXPORT<net_container>dnn_accel_system</net_container>(SLAVE)dnn_accel_system.vga,(SLAVE)vga_avalon.conduit_vga_export) 1 0 3 NJ 800 NJ 800 NJ
-preplace netloc EXPORT<net_container>dnn_accel_system</net_container>(SLAVE)dnn_accel_system.sdram,(SLAVE)sdram_controller.wire) 1 0 2 NJ 500 NJ
-preplace netloc INTERCONNECT<net_container>dnn_accel_system</net_container>(MASTER)clk_0.clk_reset,(SLAVE)switches.reset,(SLAVE)nios2_gen2_0.reset,(SLAVE)sdram_controller.reset,(SLAVE)pll_0.reset,(MASTER)nios2_gen2_0.debug_reset_request,(SLAVE)hex0.reset,(SLAVE)WordCopy_Accelerator_0.reset_sink,(SLAVE)onchip_memory2_0.reset1,(SLAVE)jtag_uart_0.reset,(SLAVE)LEDs.reset,(SLAVE)vga_avalon.reset) 1 0 3 150 280 530 760 850
-preplace netloc POINT_TO_POINT<net_container>dnn_accel_system</net_container>(MASTER)clk_0.clk,(SLAVE)pll_0.refclk) 1 1 1 N
+preplace netloc EXPORT<net_container>dnn_accel_system</net_container>(SLAVE)hex0.external_connection,(SLAVE)dnn_accel_system.hex) 1 0 2 NJ 60 NJ
+preplace netloc EXPORT<net_container>dnn_accel_system</net_container>(SLAVE)dnn_accel_system.switches,(SLAVE)switches.external_connection) 1 0 2 NJ 760 NJ
+preplace netloc POINT_TO_POINT<net_container>dnn_accel_system</net_container>(SLAVE)jtag_uart_0.irq,(MASTER)nios2_gen2_0.irq) 1 1 1 570
+preplace netloc INTERCONNECT<net_container>dnn_accel_system</net_container>(MASTER)nios2_gen2_0.instruction_master,(SLAVE)switches.s1,(SLAVE)hex0.s1,(SLAVE)WordCopy_Accelerator_0.avalon_slave_0,(SLAVE)sdram_controller.s1,(SLAVE)nios2_gen2_0.debug_mem_slave,(MASTER)nios2_gen2_0.data_master,(SLAVE)vga_avalon.avalon_slave_0,(SLAVE)LEDs.s1,(MASTER)WordCopy_Accelerator_0.avalon_master,(SLAVE)onchip_memory2_0.s1,(SLAVE)jtag_uart_0.avalon_jtag_slave) 1 0 4 90 540 530 520 810 700 1050
+preplace netloc EXPORT<net_container>dnn_accel_system</net_container>(SLAVE)dnn_accel_system.sdram,(SLAVE)sdram_controller.wire) 1 0 2 NJ 480 NJ
+preplace netloc EXPORT<net_container>dnn_accel_system</net_container>(SLAVE)clk_0.clk_in,(SLAVE)dnn_accel_system.clk) 1 0 1 NJ
 preplace netloc EXPORT<net_container>dnn_accel_system</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)dnn_accel_system.reset) 1 0 1 NJ
 preplace netloc EXPORT<net_container>dnn_accel_system</net_container>(SLAVE)dnn_accel_system.leds,(SLAVE)LEDs.external_connection) 1 0 2 NJ 300 NJ
-preplace netloc INTERCONNECT<net_container>dnn_accel_system</net_container>(SLAVE)sdram_controller.s1,(SLAVE)jtag_uart_0.avalon_jtag_slave,(SLAVE)WordCopy_Accelerator_0.avalon_slave_0,(SLAVE)switches.s1,(SLAVE)onchip_memory2_0.s1,(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)LEDs.s1,(MASTER)nios2_gen2_0.data_master,(MASTER)nios2_gen2_0.instruction_master,(SLAVE)vga_avalon.avalon_slave_0,(MASTER)WordCopy_Accelerator_0.avalon_master,(SLAVE)hex0.s1) 1 0 4 130 260 570 660 830 700 1070
-preplace netloc EXPORT<net_container>dnn_accel_system</net_container>(SLAVE)switches.external_connection,(SLAVE)dnn_accel_system.switches) 1 0 2 NJ 580 NJ
-preplace netloc EXPORT<net_container>dnn_accel_system</net_container>(SLAVE)dnn_accel_system.hex,(SLAVE)hex0.external_connection) 1 0 2 NJ 60 NJ
-preplace netloc FAN_OUT<net_container>dnn_accel_system</net_container>(SLAVE)switches.clk,(SLAVE)hex0.clk,(MASTER)pll_0.outclk0,(SLAVE)LEDs.clk,(SLAVE)nios2_gen2_0.clk,(SLAVE)sdram_controller.clk,(SLAVE)onchip_memory2_0.clk1,(SLAVE)vga_avalon.clock_sink,(SLAVE)WordCopy_Accelerator_0.clock_sink,(SLAVE)jtag_uart_0.clk) 1 0 3 110 240 590 540 810
-preplace netloc POINT_TO_POINT<net_container>dnn_accel_system</net_container>(MASTER)nios2_gen2_0.irq,(SLAVE)jtag_uart_0.irq) 1 1 1 550
-levelinfo -pg 1 0 80 1180
-levelinfo -hier dnn_accel_system 90 270 640 880 1090
+preplace netloc INTERCONNECT<net_container>dnn_accel_system</net_container>(MASTER)clk_0.clk_reset,(SLAVE)switches.reset,(SLAVE)hex0.reset,(SLAVE)onchip_memory2_0.reset1,(SLAVE)jtag_uart_0.reset,(SLAVE)nios2_gen2_0.reset,(SLAVE)LEDs.reset,(SLAVE)sdram_controller.reset,(SLAVE)WordCopy_Accelerator_0.reset_sink,(MASTER)nios2_gen2_0.debug_reset_request,(SLAVE)vga_avalon.reset) 1 0 3 130 520 490 560 770
+preplace netloc FAN_OUT<net_container>dnn_accel_system</net_container>(SLAVE)vga_avalon.clock_sink,(SLAVE)nios2_gen2_0.clk,(SLAVE)switches.clk,(MASTER)clk_0.clk,(SLAVE)jtag_uart_0.clk,(SLAVE)hex0.clk,(SLAVE)sdram_controller.clk,(SLAVE)WordCopy_Accelerator_0.clock_sink,(SLAVE)onchip_memory2_0.clk1,(SLAVE)LEDs.clk) 1 0 3 110 500 550 540 790
+preplace netloc EXPORT<net_container>dnn_accel_system</net_container>(SLAVE)vga_avalon.conduit_vga_export,(SLAVE)dnn_accel_system.vga) 1 0 3 NJ 800 NJ 800 NJ
+levelinfo -pg 1 0 60 1090
+levelinfo -hier dnn_accel_system 70 250 620 860 1070
