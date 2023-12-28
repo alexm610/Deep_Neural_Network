@@ -9,7 +9,7 @@
   </columns>
  </systemtable>
  <library expandedCategories="Library,Project" />
- <window width="3862" height="2122" x="-11" y="-11" />
+ <window width="1936" height="1168" x="-1928" y="939" />
  <generation
    testbench_system="STANDARD"
    simulation="VERILOG"
