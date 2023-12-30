@@ -14,7 +14,7 @@ c5_pin_model_dump.txt
 *.sof
 *.bak
 *.do
-instructions.md
+instructions*
 documents/
 work/
 db/
