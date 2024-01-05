@@ -32,55 +32,7 @@ module wordcopy (input logic clk, input logic rst_n,
             master_writedata <= 32'd0;
         end else case (state)
             IDLE: begin
-                // Waiting for CPU to start this module 
-                // remember, the CPU will write to byte offsets 1, 2, and 3 BEFORE triggering the module from byte offset 0. 
-                // do not reset the data for the following three registers, because after the CPU writes to another byte offset, the data will be lost
-                destination         <= ({slave_address, slave_write} == {4'd1, 1'd1}) ? slave_writedata : destination; 
-                source              <= ({slave_address, slave_write} == {4'd2, 1'd1}) ? slave_writedata : source;
-                number_words        <= ({slave_address, slave_write} == {4'd3, 1'd1}) ? slave_writedata : number_words;
-                // wait for slave_address == 4'd0, AND slave_write == 1, and then we can start the copying process. Otherwise, we stay in IDLE
-                state               <= ({slave_address, slave_write} == {4'd0, 1'd1}) ? COPY_SOURCE_DATA : IDLE; 
-                //slave_waitrequest   <= 1'b0; // this module is not doing anything and is waiting for it to be triggered, thus it is not asserting the waitrequest signal
-                slave_waitrequest   <= ({slave_address, slave_write} == {4'd0, 1'b1}) ? 1'b1 : 1'b0;
-                master_address      <= 32'd0;
-                master_read         <= 1'd0;
-                master_write        <= 1'd0;
-                master_writedata    <= 32'd0;
-                slave_readdata      <= master_readdata
-            end
-            COPY_SOURCE_DATA: begin
-                // slave is working now, so assert waitrequest to the CPU
-                slave_waitrequest   <= 1'b1; 
-                state               <= WAIT_SOURCE_DATAVALID;
-                // set the SDRAM control signals
-                master_address      <= source;
-                master_read         <= 1'b1;
-                //slave_readdata <= number_words;
-            end
-            WAIT_SOURCE_DATAVALID: begin
-                state               <= ({master_waitrequest} == {1'b0}) ? PASTE_SOURCE_DATA : WAIT_SOURCE_DATAVALID;
-                master_read         <= ({master_waitrequest} == {1'b0}) ? 1'b0 : 1'b1; // keep master_read high when waiting for SDRAM to make itself available, when it is ready, we are no longer reading from it and we can switch it off
-                master_write        <= ({master_waitrequest} == {1'b0}) ? 1'b1 : 1'b0; // only set master_write when we have successfully copied the data from source, we can then proceed to pasting
-                master_writedata    <= master_readdata;//({master_waitrequest} == {1'b0}) ? master_readdata : 32'd5; // keep the data bus TO BE WRITTEN to memory zeroed-out, then set it to the data read from memory's source location
-                slave_readdata      <= master_readdata; 
-            end
-            PASTE_SOURCE_DATA: begin
-                master_address      <= destination; //({master_waitrequest} == {1'b0}) ? destination : master_address; // wait for copy data to be valid, then update the master_address to the destination address
-                state               <= CHECK_WORDS_LEFT; //({master_waitrequest} == {1'b0}) ? PASTE_SOURCE_DATA : CHECK_WORDS_LEFT;
-                master_write        <= 1'b1; // ({master_waitrequest} == {1'b0}) ? 1'b1 : 1'b0; // keep master_write HIGH while SDRAM is busy; once it makes itself available we can deassert master_write
-            end
-            CHECK_WORDS_LEFT: begin
-                state <= (number_words == 32'd1) ? DONE : COPY_SOURCE_DATA;
-                source <= source + 32'd4;
-                destination <= destination + 32'd4;
-                number_words <= number_words - 32'd1; 
-                master_write <= 1'b0; // turn master_write OFF when we are not currently writing to SDRAM
-            end
-            DONE: begin
-                state <= DONE;
-                slave_waitrequest <= 0;
-                //slave_readdata <= (slave_read) ? 32'hDEADBEEF : 32'hABCDEF19;
-                //slave_readdata <= init_n_words;
+                
             end
         endcase
     end
