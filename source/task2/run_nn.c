@@ -25,7 +25,7 @@
 #define DONE_TASK8 0  // add bias and optionally apply activation function
 #define DONE_TASK7 0  // add on-chip SRAM
 #define DONE_TASK6 0  // create dot product accelerator
-#define DONE_TASK5 1  // create wordcopy accelerator
+#define DONE_TASK5 0  // create wordcopy accelerator
 
 
 
@@ -264,7 +264,7 @@ int main()
     result = 1; // use this to print "1" to indicate "correct" on 7seg
     result = 10; // use this to print "-" on 7seg
   #endif
-
+    wordcopy(destination, source, 5);
     *hex = hex7seg( result );
     return 0;
 }

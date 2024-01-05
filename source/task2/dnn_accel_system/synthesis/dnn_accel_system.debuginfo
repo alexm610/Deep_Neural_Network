@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="dnn_accel_system" kind="system" version="19.1" fabric="QSYS">
  <!-- Format version 19.1 670 (Future versions may contain additional information.) -->
- <!-- 2024.01.04.19:31:12 -->
+ <!-- 2024.01.04.20:12:08 -->
  <!-- A collection of modules and connections -->
  <parameter name="clockCrossingAdapter">
   <type>com.altera.sopcmodel.ensemble.EClockAdapter</type>
@@ -53,7 +53,7 @@
  </parameter>
  <parameter name="generationId">
   <type>int</type>
-  <value>1704425452</value>
+  <value>1704427909</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>true</visible>
@@ -21136,5 +21136,5 @@ parameters are a RESULT of the module parameters. -->
   <version>19.1</version>
  </plugin>
  <reportVersion>19.1 670</reportVersion>
- <uniqueIdentifier>AC1A3D7FBC4A0000018CD7AC7B40</uniqueIdentifier>
+ <uniqueIdentifier>AC1A3D7FBC4A0000018CD7D1F98B</uniqueIdentifier>
 </EnsembleReport>
