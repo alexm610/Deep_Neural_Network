@@ -1,7 +1,0 @@
-
-
-C:/Math/Verilog/Deep_Neural_Network/source/task2/dnn_accel_system/synthesis/submodules/vga_pll.sv
-
-Sep 10 05PM:58:14>: Illegal filename  extension (.sv).
-
-Do you want to edit the file anyway?

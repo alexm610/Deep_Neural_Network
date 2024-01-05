@@ -44,30 +44,17 @@ module wordcopy (input logic clk, input logic rst_n,
                 n                   <= number_words;
             end
             COPY_SOURCE_DATA: begin
-                state               <= WAIT_SOURCE_DATAVALID;
-                master_address      <= s; 
-                master_read         <= 1'b1;
-            end
-            WAIT_SOURCE_DATAVALID: begin
-                state               <= master_waitrequest ? WAIT_SOURCE_DATAVALID : PASTE_SOURCE_DATA;
-                
-                master_read         <= master_waitrequest ? 1'b1 : 1'b0;
-                master_write        <= master_waitrequest ? 1'b0 : 1'b1;
-                master_address      <= master_waitrequest ? master_address : d; // Only when we are no longer waiting on the SDRAM, do we switch the master_address to the destination value
-                master_writedata    <= master_waitrequest ? 32'h0 : master_readdata;
-            end
-            PASTE_SOURCE_DATA: begin
-                state               <= master_waitrequest ? PASTE_SOURCE_DATA : CHECK_WORDS_LEFT;
-                master_write        <= master_waitrequest ? 1'b1 : 1'b0;
-            end
-            CHECK_WORDS_LEFT: begin
-                state               <= ({n} == {32'b0}) ? IDLE : COPY_SOURCE_DATA;
-
-                d                   <= ({n} == {32'b0}) ? d : d + 32'h4;
-                s                   <= ({n} == {32'b0}) ? s : s + 32'h4;
-                n                   <= ({n} == {32'h0}) ? n : n - 32'h1;
-
-                slave_waitrequest   <= ({n} == {32'h0}) ? 1'b0 : 1'b1;
+                state               <= COPY_SOURCE_DATA;                   
+                slave_readdata      <= d;
+                slave_waitrequest   <= 0;
+                /*this works!! 
+                the memory at location 0x1040 shows 0x89C0, which is the value run_nn.C 
+                places for dst!
+                */
+                master_address      <= 32'h89C0;
+                master_write        <= 1;
+                master_read         <= 0;
+                master_writedata    <= 32'h0BADF00D;
             end
         endcase
     end
