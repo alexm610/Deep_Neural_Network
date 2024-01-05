@@ -1,4 +1,4 @@
-module wordcopy (input logic clk, input logic rst_n,
+module wordcopy(input logic clk, input logic rst_n,
                 // slave (CPU-facing)
                 output logic slave_waitrequest,
                 input logic [3:0] slave_address,
@@ -9,70 +9,106 @@ module wordcopy (input logic clk, input logic rst_n,
                 output logic [31:0] master_address,
                 output logic master_read, input logic [31:0] master_readdata, input logic master_readdatavalid,
                 output logic master_write, output logic [31:0] master_writedata);
-                // export signal to HEX, so I know what is happening within the module during operation
-                
 
-    logic [31:0] destination, d, source, s, number_words, n;
-    logic [4:0] hex_output_wire;
-    int i = 6;
-    enum {IDLE, COPY_SOURCE_DATA, WAIT_SOURCE_DATAVALID, PASTE_SOURCE_DATA, CHECK_WORDS_LEFT, DONE} state;
+    logic [31:0] dst, src, n_words;
+    logic [31:0] curr_dst, curr_src, words_left; //for counting number of words left to copy, in case n_words input reused
 
-    always @(posedge clk) begin
-        if (!rst_n) begin
-            state <= IDLE;
-            // hold slave_waitrequest HIGH
-            slave_waitrequest <= 1'b0; 
-            destination <= 32'd0;
-            source <= 32'd0;
-            number_words <= 32'd0;
-            // reset SDRAM control signal to zero
-            master_address <= 32'd0;
-            master_read <= 1'd0;
-            master_write <= 1'd0;
-            master_writedata <= 32'd0;
-        end else case (state)
-            IDLE: begin
-                state               <= ({slave_write, slave_address} == {1'b1, 4'd0}) ? COPY_SOURCE_DATA : IDLE;
+    enum {RESET, CPU, REQCOPY, COPY, PASTE, CHECKNEXT} state;
 
-                slave_waitrequest   <= ({slave_write, slave_address} == {1'b1, 4'd0}) ? 1'b1 : 1'b0; 
+    always_ff @(posedge clk) begin
+        if(!rst_n) begin
+            state <= RESET;
 
-                destination         <= ({slave_write, slave_address} == {1'b1, 4'd1}) ? slave_writedata : destination;
-                source              <= ({slave_write, slave_address} == {1'b1, 4'd2}) ? slave_writedata : source;
-                number_words        <= ({slave_write, slave_address} == {1'b1, 4'd3}) ? slave_writedata : number_words;
-                
-                d                   <= destination;
-                s                   <= source;
-                n                   <= number_words;
+            slave_waitrequest <= 1'b0;
 
-                
+            dst     <= 32'b0;
+            src     <= 32'b0;
+            n_words <= 32'b0;
             
-            end
-            COPY_SOURCE_DATA: begin
-                state               <= WAIT_SOURCE_DATAVALID;
-                master_address      <= s; 
-                master_read         <= 1'b1;
-            end
-            WAIT_SOURCE_DATAVALID: begin
-                state               <= master_waitrequest ? WAIT_SOURCE_DATAVALID : PASTE_SOURCE_DATA;
-                master_read         <= master_waitrequest ? 1'b1 : 1'b0;
-                master_write        <= master_waitrequest ? 1'b0 : 1'b1;
-                master_address      <= master_waitrequest ? master_address : d; // Only when we are no longer waiting on the SDRAM, do we switch the master_address to the destination value
-                master_writedata    <= master_waitrequest ? 32'h0 : master_readdata;
-            end
-            PASTE_SOURCE_DATA: begin
-                state               <= master_waitrequest ? PASTE_SOURCE_DATA : CHECK_WORDS_LEFT;
-                master_write        <= master_waitrequest ? 1'b1 : 1'b0;
+            master_address   <= 32'b0;
+            master_read      <= 1'b0;
+            master_write     <= 1'b0;
+            master_writedata <= 32'b0;
+
+        end else case(state)
+            RESET: begin
+                state <= CPU;
+
+                dst     <= 32'b0;
+                src     <= 32'b0;
+                n_words <= 32'b0;
+
+                slave_waitrequest <= 1'b0;
                 
+                master_address   <= 32'b0;
+                master_read      <= 1'b0;
+                master_write     <= 1'b0;
+                master_writedata <= 32'b0;
             end
-            CHECK_WORDS_LEFT: begin
-                state               <= ({n} == {32'b0}) ? IDLE : COPY_SOURCE_DATA;
+            CPU: begin
+                state <= (slave_write && slave_address == 4'd0 && n_words) ? REQCOPY : CPU;
 
-                d                   <= ({n} == {32'b0}) ? d : d + 32'h4;
-                s                   <= ({n} == {32'b0}) ? s : s + 32'h4;
-                n                   <= ({n} == {32'h0}) ? n : n - 32'h1;
+                dst        <= (slave_write && slave_address == 4'd1) ? slave_writedata : dst;
+                src        <= (slave_write && slave_address == 4'd2) ? slave_writedata : src;
+                n_words    <= (slave_write && slave_address == 4'd3) ? slave_writedata : n_words;
+                
+                curr_dst   <= dst;
+                curr_src   <= src;
+                words_left <= n_words - 32'b1;
 
-                slave_waitrequest   <= ({n} == {32'h0}) ? 1'b0 : 1'b1;
+                slave_waitrequest <= (slave_write && slave_address == 4'd0) ? 1'b1 : 1'b0;
+            end
+            REQCOPY: begin
+                state <= COPY;
+
+                master_address   <= curr_src;
+                master_read      <= 1'b1;
+            end
+            COPY: begin
+                state <= (!master_waitrequest && master_readdatavalid) ? PASTE : COPY;
+                
+                master_address   <= (!master_waitrequest && master_readdatavalid) ? curr_dst : master_address;
+                master_read      <= (!master_waitrequest && master_readdatavalid) ? 1'b0 : 1'b1;
+                master_write     <= (!master_waitrequest && master_readdatavalid) ? 1'b1 : 1'b0;
+                master_writedata <= (!master_waitrequest && master_readdatavalid) ? master_readdata : 32'b0;
+            end
+            PASTE: begin
+                state <= (!master_waitrequest) ? CHECKNEXT : PASTE;
+                
+                master_write     <= (!master_waitrequest) ? 1'b0 : 1'b1;
+            end
+            CHECKNEXT: begin
+                state <= (words_left) ? REQCOPY : (slave_read) ? CPU : CHECKNEXT;
+
+                curr_dst   <= (words_left) ? curr_dst + 32'd4 : curr_dst;
+                curr_src   <= (words_left) ? curr_src + 32'd4 : curr_src;
+                words_left <= (words_left) ? words_left - 32'b1 : words_left;
+
+                slave_waitrequest <= (words_left) ? 1'b1 : 1'b0;
+                slave_readdata    <= (slave_read) ? 32'hbeefb01 : slave_readdata;
+
+                master_address   <= 32'b0;
+                master_writedata <= 32'b0;
+            end
+            default: begin
+                state <= RESET;
+
+                dst        <= {32{1'bx}};
+                src        <= {32{1'bx}};
+                n_words    <= {32{1'bx}};
+                curr_dst   <= {32{1'bx}};
+                curr_src   <= {32{1'bx}};
+                words_left <= {32{1'bx}};
+
+                slave_waitrequest <= 1'bx;
+                slave_readdata    <= {32{1'bx}};
+
+                master_address   <= {32{1'bx}};
+                master_read      <= 1'bx;
+                master_write     <= 1'bx;
+                master_writedata <= {32{1'bx}};
             end
         endcase
     end
+
 endmodule: wordcopy
