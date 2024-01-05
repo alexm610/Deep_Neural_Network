@@ -29,7 +29,7 @@
    {
       datum _sortIndex
       {
-         value = "10";
+         value = "9";
          type = "int";
       }
    }
@@ -66,7 +66,7 @@
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "7";
          type = "int";
       }
    }
@@ -158,7 +158,7 @@
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "10";
          type = "int";
       }
    }
@@ -195,7 +195,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "8";
          type = "int";
       }
    }
@@ -858,18 +858,18 @@
    kind="avalon"
    version="19.1"
    start="nios2_gen2_0.data_master"
-   end="sdram_controller.s1">
+   end="hex0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08000000" />
+  <parameter name="baseAddress" value="0x1010" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
    kind="avalon"
    version="19.1"
    start="nios2_gen2_0.data_master"
-   end="hex0.s1">
+   end="sdram_controller.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1010" />
+  <parameter name="baseAddress" value="0x08000000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -900,11 +900,6 @@
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="19.1" start="clk_0.clk" end="pll_0.refclk" />
- <connection
-   kind="clock"
-   version="19.1"
-   start="pll_0.outclk0"
-   end="sdram_controller.clk" />
  <connection kind="clock" version="19.1" start="pll_0.outclk0" end="hex0.clk" />
  <connection
    kind="clock"
@@ -918,6 +913,11 @@
    version="19.1"
    start="pll_0.outclk0"
    end="jtag_uart_0.clk" />
+ <connection
+   kind="clock"
+   version="19.1"
+   start="pll_0.outclk0"
+   end="sdram_controller.clk" />
  <connection
    kind="clock"
    version="19.1"
@@ -956,11 +956,6 @@
    version="19.1"
    start="clk_0.clk_reset"
    end="jtag_uart_0.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="clk_0.clk_reset"
-   end="sdram_controller.reset" />
  <connection kind="reset" version="19.1" start="clk_0.clk_reset" end="hex0.reset" />
  <connection
    kind="reset"
@@ -968,6 +963,11 @@
    start="clk_0.clk_reset"
    end="vga_avalon.reset" />
  <connection kind="reset" version="19.1" start="clk_0.clk_reset" end="pll_0.reset" />
+ <connection
+   kind="reset"
+   version="19.1"
+   start="clk_0.clk_reset"
+   end="sdram_controller.reset" />
  <connection
    kind="reset"
    version="19.1"
@@ -1002,17 +1002,17 @@
    kind="reset"
    version="19.1"
    start="nios2_gen2_0.debug_reset_request"
-   end="sdram_controller.reset" />
- <connection
-   kind="reset"
-   version="19.1"
-   start="nios2_gen2_0.debug_reset_request"
    end="hex0.reset" />
  <connection
    kind="reset"
    version="19.1"
    start="nios2_gen2_0.debug_reset_request"
    end="vga_avalon.reset" />
+ <connection
+   kind="reset"
+   version="19.1"
+   start="nios2_gen2_0.debug_reset_request"
+   end="sdram_controller.reset" />
  <connection
    kind="reset"
    version="19.1"

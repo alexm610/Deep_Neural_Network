@@ -28,7 +28,7 @@
 // ------------------------------------------
 // Generation parameters:
 //   output_name:         dnn_accel_system_mm_interconnect_0_rsp_demux
-//   ST_DATA_W:           110
+//   ST_DATA_W:           112
 //   ST_CHANNEL_W:        9
 //   NUM_OUTPUTS:         2
 //   VALID_WIDTH:         1
@@ -46,7 +46,7 @@ module dnn_accel_system_mm_interconnect_0_rsp_demux
     // Sink
     // -------------------
     input  [1-1      : 0]   sink_valid,
-    input  [110-1    : 0]   sink_data, // ST_DATA_W=110
+    input  [112-1    : 0]   sink_data, // ST_DATA_W=112
     input  [9-1 : 0]   sink_channel, // ST_CHANNEL_W=9
     input                         sink_startofpacket,
     input                         sink_endofpacket,
@@ -56,14 +56,14 @@ module dnn_accel_system_mm_interconnect_0_rsp_demux
     // Sources 
     // -------------------
     output reg                      src0_valid,
-    output reg [110-1    : 0] src0_data, // ST_DATA_W=110
+    output reg [112-1    : 0] src0_data, // ST_DATA_W=112
     output reg [9-1 : 0] src0_channel, // ST_CHANNEL_W=9
     output reg                      src0_startofpacket,
     output reg                      src0_endofpacket,
     input                           src0_ready,
 
     output reg                      src1_valid,
-    output reg [110-1    : 0] src1_data, // ST_DATA_W=110
+    output reg [112-1    : 0] src1_data, // ST_DATA_W=112
     output reg [9-1 : 0] src1_channel, // ST_CHANNEL_W=9
     output reg                      src1_startofpacket,
     output reg                      src1_endofpacket,

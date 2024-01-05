@@ -12,18 +12,16 @@ module wordcopy (input logic clk, input logic rst_n,
                 // export signal to HEX, so I know what is happening within the module during operation
                 
 
-    logic [31:0] destination, d, source, s, number_words, n;
+    logic [31:0] destination, d, source, s, number_words, n, init_n_words;
     logic [4:0] hex_output_wire;
     int i = 6;
     enum {IDLE, COPY_SOURCE_DATA, WAIT_SOURCE_DATAVALID, PASTE_SOURCE_DATA, CHECK_WORDS_LEFT, DONE} state;
-
-
 
     always @(posedge clk) begin
         if (!rst_n) begin
             state <= IDLE;
             // hold slave_waitrequest HIGH
-            slave_waitrequest <= 1'b1; 
+            slave_waitrequest <= 1'b0; 
             destination <= 32'd0;
             source <= 32'd0;
             number_words <= 32'd0;
@@ -42,11 +40,13 @@ module wordcopy (input logic clk, input logic rst_n,
                 number_words        <= ({slave_address, slave_write} == {4'd3, 1'd1}) ? slave_writedata : number_words;
                 // wait for slave_address == 4'd0, AND slave_write == 1, and then we can start the copying process. Otherwise, we stay in IDLE
                 state               <= ({slave_address, slave_write} == {4'd0, 1'd1}) ? COPY_SOURCE_DATA : IDLE; 
-                slave_waitrequest   <= 1'b0; // this module is not doing anything and is waiting for it to be triggered, thus it is not asserting the waitrequest signal
+                //slave_waitrequest   <= 1'b0; // this module is not doing anything and is waiting for it to be triggered, thus it is not asserting the waitrequest signal
+                slave_waitrequest   <= ({slave_address, slave_write} == {4'd0, 1'b1}) ? 1'b1 : 1'b0;
                 master_address      <= 32'd0;
                 master_read         <= 1'd0;
                 master_write        <= 1'd0;
                 master_writedata    <= 32'd0;
+                slave_readdata      <= master_readdata
             end
             COPY_SOURCE_DATA: begin
                 // slave is working now, so assert waitrequest to the CPU
@@ -55,12 +55,14 @@ module wordcopy (input logic clk, input logic rst_n,
                 // set the SDRAM control signals
                 master_address      <= source;
                 master_read         <= 1'b1;
+                //slave_readdata <= number_words;
             end
             WAIT_SOURCE_DATAVALID: begin
                 state               <= ({master_waitrequest} == {1'b0}) ? PASTE_SOURCE_DATA : WAIT_SOURCE_DATAVALID;
                 master_read         <= ({master_waitrequest} == {1'b0}) ? 1'b0 : 1'b1; // keep master_read high when waiting for SDRAM to make itself available, when it is ready, we are no longer reading from it and we can switch it off
                 master_write        <= ({master_waitrequest} == {1'b0}) ? 1'b1 : 1'b0; // only set master_write when we have successfully copied the data from source, we can then proceed to pasting
                 master_writedata    <= master_readdata;//({master_waitrequest} == {1'b0}) ? master_readdata : 32'd5; // keep the data bus TO BE WRITTEN to memory zeroed-out, then set it to the data read from memory's source location
+                slave_readdata      <= master_readdata; 
             end
             PASTE_SOURCE_DATA: begin
                 master_address      <= destination; //({master_waitrequest} == {1'b0}) ? destination : master_address; // wait for copy data to be valid, then update the master_address to the destination address
@@ -75,8 +77,10 @@ module wordcopy (input logic clk, input logic rst_n,
                 master_write <= 1'b0; // turn master_write OFF when we are not currently writing to SDRAM
             end
             DONE: begin
-                state <= IDLE;
-                slave_readdata <= (slave_read) ? 32'hDEADBEEF : 32'hABCDEF19;
+                state <= DONE;
+                slave_waitrequest <= 0;
+                //slave_readdata <= (slave_read) ? 32'hDEADBEEF : 32'hABCDEF19;
+                //slave_readdata <= init_n_words;
             end
         endcase
     end

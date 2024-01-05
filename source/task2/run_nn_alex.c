@@ -25,7 +25,7 @@
 #define DONE_TASK8 0  // add bias and optionally apply activation function
 #define DONE_TASK7 0  // add on-chip SRAM
 #define DONE_TASK6 0  // create dot product accelerator
-#define DONE_TASK5 1  // create wordcopy accelerator
+#define DONE_TASK5 0  // create wordcopy accelerator
 
 
 
@@ -36,19 +36,19 @@ volatile unsigned *act_acc      = (volatile unsigned *) 0x00001200; /* DOT produ
 volatile      int *vga          = (volatile      int *) 0x00004000; /* VGA adapter base address */
 volatile      int *bank0        = (volatile      int *) 0x00006000; /* SRAM bank0 */
 volatile      int *bank1        = (volatile      int *) 0x00007000; /* SRAM bank1 */
-
+volatile unsigned *leds         = (volatile unsigned *) 0x00000010;
+volatile unsigned *switches     = (volatile unsigned *) 0x00000000;
+volatile unsigned *sram_inst    = (volatile unsigned *) 0x00008000; /* SRAM instruction memory */
 /* normally these would be contiguous but it's nice to know where they are for debugging */
-volatile int *nn          = (volatile int *) 0x08000000; /* neural network biases and weights */
-volatile int *input       = (volatile int *) 0x08800000; /* input image */
-volatile int *l1_acts     = (volatile int *) 0x08801000; /* activations of layer 1 */
-volatile int *l2_acts     = (volatile int *) 0x08802000; /* activations of layer 2 */
-volatile int *l3_acts     = (volatile int *) 0x08803000; /* activations of layer 3 (outputs) */
-volatile int *destination = (volatile int *) 0x000089C0; 
-volatile int *source      = (volatile int *) 0x00008000;
+volatile int *nn      = (volatile int *) 0x08000000; /* neural network biases and weights */
+volatile int *input   = (volatile int *) 0x08800000; /* input image */
+volatile int *l1_acts = (volatile int *) 0x08801000; /* activations of layer 1 */
+volatile int *l2_acts = (volatile int *) 0x08802000; /* activations of layer 2 */
+volatile int *l3_acts = (volatile int *) 0x08803000; /* activations of layer 3 (outputs) */
 
 
-//#include "../task4/vga_plot.c"
 #include "vga_plot.c"
+//#include "vga_plot.c"
 
 
 
@@ -97,11 +97,11 @@ void wordcopy_sw( volatile int *dst, volatile int *src, int n_words )
 
 void wordcopy( volatile int *dst, volatile int *src, int n_words )
 {
-  #if ( DONE_TASK5 || DONE_TASK6 || DONE_TASK7 || DONE_TASK8 )
+  //#if ( DONE_TASK5 || DONE_TASK6 || DONE_TASK7 || DONE_TASK8 )
     wordcopy_hw( dst, src, n_words );
-  #else
-    wordcopy_sw( dst, src, n_words );
-  #endif
+  //#else
+    //wordcopy_sw( dst, src, n_words );
+  //#endif
 }
 
 
@@ -253,18 +253,16 @@ int main()
     // write code here to test wordcopy software versus wordcopy hardware
     // use something like: wordcopy( copy_to_here, input, L1_IN );
     //    where 'L1_IN' is the amount of data to copy from address 'input'
-    #if DONE_TASK5
-      //Along with loading image at 0x8800000, load another one at 0x9000000
-      //Run the program back to back twice
-      //If the image displayed by the is 0x8800000's image on the first run
-      //  and 0x9000000's on the second, wordcopy_hw is functional
-      wordcopy(destination, source, 4);
-    #endif
     result = 0; // use this to print "0" to indicate "error" on 7seg
     result = 1; // use this to print "1" to indicate "correct" on 7seg
     result = 10; // use this to print "-" on 7seg
   #endif
+	volatile int *address	= (volatile int *) 0x000089C0; /* neural network biases and weights */
+	volatile int *address1	= (volatile int *) 0x00008AA0;
+	volatile int *i = (volatile int *) 0x0;
+    *leds = *switches;
+   	wordcopy(address, nn, 5);
 
-    *hex = hex7seg( result );
     return 0;
+
 }
